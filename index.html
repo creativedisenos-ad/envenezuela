@@ -3,130 +3,300 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>enVenezuela.app · La red de ayuda tras el sismo</title>
-<meta name="description" content="Red comunitaria y gratuita: encuentra a tu familiar ingresado, recibe apoyo emocional verificado y consigue trabajo o voluntariado tras el sismo.">
+<title>enVenezuela.app · Fundación y red de ayuda tras el sismo</title>
+<meta name="description" content="Fundación comunitaria sin fines de lucro: encuentra a tu familiar ingresado, recibe apoyo emocional verificado y consigue trabajo o voluntariado. Todo gratis, todo web, para todos.">
 <meta property="og:title" content="enVenezuela.app · La red de ayuda tras el sismo">
-<meta property="og:description" content="Tres plataformas hermanas, gratuitas y comunitarias: hospitales, psicólogos y empleo en Venezuela.">
+<meta property="og:description" content="Una fundación, tres plataformas: hospitales, psicólogos y empleo. Datos en vivo, centro de registro presencial y comunidad.">
 <meta name="theme-color" content="#101828">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f4f6fa; --surface:#ffffff; --ink:#101828; --ink-2:#344054; --muted:#667085;
+  --bg:#f4f6fa; --surface:#fff; --ink:#101828; --ink-2:#344054; --muted:#667085;
   --line:rgba(16,24,40,.15); --line-2:rgba(16,24,40,.08);
-  --teal:#0a8d8f; --teal-deep:#076b6d; --violet:#6d4fe0; --violet-deep:#4e35b5; --blue:#1a56db; --blue-deep:#173ea5;
-  --r-card:1.1rem; --r-btn:.75rem; --r-pill:999px;
+  --teal:#0a8d8f; --teal-d:#076b6d; --violet:#6d4fe0; --violet-d:#4e35b5; --blue:#1a56db; --blue-d:#173ea5;
+  --ok:#0f8a45; --ok-bg:#eaf7ef;
+  --r-card:1.1rem; --r-fld:.85rem; --r-btn:.75rem; --r-pill:999px;
+  --shadow-s:0 1px 2px rgba(10,20,40,.05),0 2px 6px rgba(10,20,40,.05);
   --shadow-card:0 2px 8px rgba(10,20,40,.05),0 14px 36px rgba(10,20,40,.09);
   --shadow-pop:0 24px 56px -8px rgba(10,20,40,.24);
   --shadow-btn:0 2px 4px rgba(10,20,40,.16),0 8px 20px rgba(10,20,40,.30);
+  --grad:linear-gradient(135deg,#0a8d8f 0%,#6d4fe0 52%,#1a56db 100%);
   --ease:cubic-bezier(.32,.72,0,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{font-size:17px}
-body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+html{font-size:17px;scroll-behavior:smooth;scroll-padding-top:4.2rem}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
 h1,h2,h3{letter-spacing:-.02em}
-.wrap{max-width:1040px;margin:0 auto;padding:1.2rem 1.1rem 3rem}
-header{padding:2.6rem 0 1.4rem;text-align:center}
-.logo{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.35rem}
-.logo .mark{width:2.6rem;height:2.6rem;border-radius:.85rem;background:linear-gradient(135deg,#0a8d8f 0%,#6d4fe0 52%,#1a56db 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.25rem;box-shadow:var(--shadow-btn)}
-.logo b{color:var(--ink)}.logo span.dom{color:var(--muted);font-weight:600}
-h1{font-size:clamp(1.7rem,4.5vw,2.6rem);margin:1.4rem auto .7rem;max-width:760px;line-height:1.18}
-h1 .grad{background:linear-gradient(90deg,#0a8d8f,#6d4fe0 55%,#1a56db);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:var(--ink-2);max-width:640px;margin:0 auto;font-size:1.02rem}
-.badge-fund{display:inline-block;margin-top:1rem;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-pill);padding:.45rem 1.05rem;font-size:.85rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-card)}
-.stats{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin:1.8rem 0 .4rem}
-.stat{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-card);padding:.9rem 1.4rem;min-width:9.5rem;box-shadow:var(--shadow-card);text-align:center}
-.stat .num{display:block;font-size:1.55rem;font-weight:800}
-.stat .lbl{font-size:.8rem;color:var(--muted);font-weight:600}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.2rem}
-@media(max-width:860px){.grid{grid-template-columns:1fr}}
-.card{display:flex;flex-direction:column;background:var(--surface);border-radius:var(--r-card);padding:1.5rem 1.4rem 1.4rem;text-decoration:none;color:var(--ink);border:1px solid var(--line-2);box-shadow:var(--shadow-card);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.wrap{max-width:1060px;margin:0 auto;padding:0 1.1rem}
+a{color:inherit}
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-2)}
+.top .in{display:flex;align-items:center;gap:1rem;height:3.6rem}
+.logo{display:flex;align-items:center;gap:.5rem;font-weight:800;font-size:1.02rem;text-decoration:none;flex:none}
+.logo .mark{width:2rem;height:2rem;border-radius:.6rem;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.95rem;box-shadow:var(--shadow-btn)}
+.logo span.dom{color:var(--muted);font-weight:600}
+nav{display:flex;gap:.2rem;overflow-x:auto;scrollbar-width:none;margin-left:auto}
+nav::-webkit-scrollbar{display:none}
+nav a{text-decoration:none;font-size:.86rem;font-weight:600;color:var(--ink-2);padding:.45rem .7rem;border-radius:var(--r-pill);white-space:nowrap}
+nav a:hover{background:var(--bg)}
+nav a.cta{background:var(--grad);color:#fff;box-shadow:var(--shadow-btn)}
+header.hero{text-align:center;padding:3.4rem 0 1.6rem}
+.badge-f{display:inline-flex;align-items:center;gap:.45rem;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-pill);padding:.45rem 1rem;font-size:.82rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-card)}
+.badge-f .d{width:.55rem;height:.55rem;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{font-size:clamp(1.75rem,4.6vw,2.7rem);margin:1.1rem auto .7rem;max-width:800px;line-height:1.16}
+h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{color:var(--ink-2);max-width:660px;margin:0 auto;font-size:1rem}
+.hero .ctas{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1.5rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 1.35rem;border-radius:var(--r-btn);font-weight:700;font-size:.95rem;text-decoration:none;border:none;cursor:pointer;transition:transform .2s var(--ease),filter .2s}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:var(--shadow-btn)}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow-s)}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
+.btn:active{transform:scale(.98)}
+.livehead{display:flex;align-items:center;gap:.5rem;justify-content:center;margin:2.2rem 0 .9rem;font-weight:700;font-size:.9rem;color:var(--ink-2)}
+.livehead .d{width:.6rem;height:.6rem;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
+.stats{display:grid;grid-template-columns:repeat(6,1fr);gap:.7rem}
+@media(max-width:900px){.stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-card);padding:.85rem .6rem;box-shadow:var(--shadow-card);text-align:center}
+.stat .num{display:block;font-size:1.35rem;font-weight:800}
+.stat .lbl{font-size:.72rem;color:var(--muted);font-weight:600;line-height:1.25;display:block;margin-top:.15rem}
+.lastreg{text-align:center;font-size:.82rem;color:var(--muted);margin-top:.7rem;min-height:1.2em}
+.lastreg b{color:var(--ink-2)}
+section{padding:2.6rem 0 0}
+.sec-h{text-align:center;margin-bottom:1.4rem}
+.sec-h h2{font-size:clamp(1.3rem,3vw,1.7rem)}
+.sec-h p{color:var(--muted);font-size:.94rem;max-width:600px;margin:.4rem auto 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:860px){.grid3{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;background:var(--surface);border-radius:var(--r-card);padding:1.4rem 1.3rem 1.3rem;text-decoration:none;color:var(--ink);border:1px solid var(--line-2);box-shadow:var(--shadow-card);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
 @media(hover:hover){.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-pop)}}
-.card .ic{width:3.1rem;height:3.1rem;border-radius:.95rem;display:flex;align-items:center;justify-content:center;font-size:1.45rem;color:#fff;margin-bottom:1rem;box-shadow:var(--shadow-btn)}
-.card.teal .ic{background:linear-gradient(135deg,#12b3b5,var(--teal-deep))}
-.card.violet .ic{background:linear-gradient(135deg,#8b6cf0,var(--violet-deep))}
-.card.blue .ic{background:linear-gradient(135deg,#3f83f8,var(--blue-deep))}
-.card h2{font-size:1.12rem;margin-bottom:.35rem}
-.card p{font-size:.92rem;color:var(--ink-2);flex:1}
-.card .go{margin-top:1.1rem;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;font-weight:700;font-size:.95rem;color:#fff;border-radius:var(--r-btn);padding:.8rem 1rem;box-shadow:var(--shadow-btn);transition:filter .2s}
-.card.teal .go{background:linear-gradient(135deg,#12b3b5,var(--teal-deep))}
-.card.violet .go{background:linear-gradient(135deg,#8b6cf0,var(--violet-deep))}
-.card.blue .go{background:linear-gradient(135deg,#3f83f8,var(--blue-deep))}
-@media(hover:hover){.card:hover .go{filter:brightness(1.07)}}
-.card .dom{font-size:.8rem;color:var(--muted);font-weight:600;margin-top:.6rem;text-align:center}
-.how{margin-top:3rem;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-card);padding:1.6rem 1.4rem;box-shadow:var(--shadow-card)}
-.how h2{font-size:1.15rem;margin-bottom:.9rem}
-.how p{font-size:.94rem;color:var(--ink-2);margin-bottom:.7rem}
-footer{margin-top:2.6rem;text-align:center;color:var(--muted);font-size:.83rem;line-height:1.7}
+.card .ic{width:3rem;height:3rem;border-radius:.9rem;display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:#fff;margin-bottom:.9rem;box-shadow:var(--shadow-btn)}
+.card.teal .ic{background:linear-gradient(135deg,#12b3b5,var(--teal-d))}
+.card.violet .ic{background:linear-gradient(135deg,#8b6cf0,var(--violet-d))}
+.card.blue .ic{background:linear-gradient(135deg,#3f83f8,var(--blue-d))}
+.card h3{font-size:1.05rem;margin-bottom:.3rem}
+.card p{font-size:.9rem;color:var(--ink-2);flex:1}
+.card .go{margin-top:1rem;display:flex;align-items:center;justify-content:center;gap:.4rem;font-weight:700;font-size:.92rem;color:#fff;border-radius:var(--r-btn);padding:.75rem 1rem;box-shadow:var(--shadow-btn)}
+.card.teal .go{background:linear-gradient(135deg,#12b3b5,var(--teal-d))}
+.card.violet .go{background:linear-gradient(135deg,#8b6cf0,var(--violet-d))}
+.card.blue .go{background:linear-gradient(135deg,#3f83f8,var(--blue-d))}
+.card .dom{font-size:.78rem;color:var(--muted);font-weight:600;margin-top:.55rem;text-align:center}
+.centro{background:var(--grad);border-radius:1.4rem;box-shadow:var(--shadow-pop);color:#fff;padding:2rem 1.5rem;display:grid;grid-template-columns:1.1fr .9fr;gap:1.8rem;align-items:start}
+@media(max-width:860px){.centro{grid-template-columns:1fr;padding:1.6rem 1.2rem}}
+.centro h2{font-size:clamp(1.25rem,3vw,1.65rem);margin-bottom:.6rem}
+.centro p{font-size:.93rem;color:rgba(255,255,255,.92);margin-bottom:.7rem}
+.centro ul{list-style:none;margin:.4rem 0 .8rem}
+.centro li{display:flex;gap:.55rem;font-size:.9rem;margin-bottom:.5rem;color:rgba(255,255,255,.95)}
+.centro li span.b{flex:none}
+.cbox{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:var(--r-card);padding:1.1rem;backdrop-filter:blur(4px)}
+.cbox h3{font-size:1rem;margin-bottom:.6rem}
+.cbox .cnt{font-size:.8rem;color:rgba(255,255,255,.85);margin-bottom:.6rem;min-height:1.1em}
+.fld{width:100%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.95);color:var(--ink);border-radius:var(--r-fld);padding:.75rem .85rem;font:inherit;font-size:.92rem;margin-bottom:.6rem}
+.fld:focus{outline:none;box-shadow:0 0 0 4px rgba(255,255,255,.35)}
+.send{width:100%;border:none;cursor:pointer;background:#fff;color:var(--ink);font:inherit;font-weight:700;font-size:.95rem;padding:.85rem;border-radius:var(--r-btn);box-shadow:var(--shadow-btn);transition:transform .2s,filter .2s}
+.send:hover{transform:translateY(-1px)}
+.send:disabled{opacity:.6;cursor:default;transform:none}
+.fmsg{font-size:.85rem;font-weight:600;margin-top:.5rem;min-height:1.2em}
+.grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem}
+@media(max-width:860px){.grid6{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.grid6{grid-template-columns:1fr}}
+.rule{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-card);padding:1.05rem 1rem;box-shadow:var(--shadow-card)}
+.rule .e{font-size:1.3rem}
+.rule b{display:block;font-size:.92rem;margin:.35rem 0 .2rem}
+.rule p{font-size:.82rem;color:var(--ink-2)}
+.fund{background:var(--surface);border:1px solid var(--line-2);border-radius:1.4rem;box-shadow:var(--shadow-card);padding:1.8rem 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+@media(max-width:860px){.fund{grid-template-columns:1fr}}
+.fund h2{font-size:1.25rem;margin-bottom:.6rem}
+.fund p{font-size:.9rem;color:var(--ink-2);margin-bottom:.6rem}
+.fund .mini{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line-2);padding-top:.7rem;margin-top:.4rem}
+.fund label{display:block;font-size:.82rem;font-weight:600;color:var(--ink-2);margin:.5rem 0 .25rem}
+.fund .fld{background:var(--bg);border:1px solid var(--line);color:var(--ink)}
+.fund .fld:focus{box-shadow:0 0 0 4px rgba(109,79,224,.18)}
+.fund .send{background:var(--grad);color:#fff}
+footer{margin-top:3rem;padding:2rem 0 2.6rem;border-top:1px solid var(--line-2);text-align:center;color:var(--muted);font-size:.82rem;line-height:1.8}
 footer b{color:var(--ink-2)}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="logo"><span class="mark">✚</span><span><b>en</b><span class="dom">Venezuela.app</span></span></div>
-    <h1>Una sola red de ayuda, <span class="grad">tres plataformas hermanas</span>, gratis y para todos.</h1>
-    <p class="sub">Tras el sismo nos organizamos como comunidad: aquí encuentras a tu familiar ingresado, recibes apoyo emocional de profesionales verificados y consigues trabajo o voluntariado. Sin pagos, sin intermediarios.</p>
-    <span class="badge-fund">Iniciativa comunitaria sin fines de lucro</span>
-  </header>
 
-  <div class="stats" id="stats" hidden>
-    <div class="stat"><span class="num" id="st-pac">…</span><span class="lbl">personas registradas</span></div>
-    <div class="stat"><span class="num" id="st-prof">…</span><span class="lbl">profesionales de salud mental</span></div>
-    <div class="stat"><span class="num" id="st-emp">…</span><span class="lbl">personas buscando empleo</span></div>
+<div class="top"><div class="wrap in">
+  <a class="logo" href="#"><span class="mark">✚</span><span><b>en</b><span class="dom">Venezuela.app</span></span></a>
+  <nav>
+    <a href="#plataformas">Plataformas</a>
+    <a href="#envivo">En vivo</a>
+    <a href="#registro">Regístrate</a>
+    <a href="#fundacion">Fundación</a>
+    <a href="#unete" class="cta">Únete</a>
+  </nav>
+</div></div>
+
+<header class="hero wrap">
+  <span class="badge-f"><span class="d"></span> Fundación comunitaria · sin fines de lucro · red en vivo</span>
+  <h1>Una sola red de ayuda, <span class="grad">tres plataformas hermanas</span>, gratis y para todos.</h1>
+  <p class="sub">Tras el sismo nos organizamos como comunidad: aquí encuentras a tu familiar ingresado, recibes apoyo emocional de profesionales verificados y consigues trabajo o voluntariado. Sin pagos, sin descargas, sin intermediarios: pura web, en tu teléfono o en tu computadora.</p>
+  <div class="ctas">
+    <a class="btn primary" href="#plataformas">Ver las plataformas</a>
+    <a class="btn ghost" href="#registro">¿Perdiste todo? Regístrate</a>
   </div>
+</header>
 
-  <div class="grid">
+<div class="wrap" id="envivo">
+  <div class="livehead"><span class="d"></span> LA RED EN VIVO</div>
+  <div class="stats">
+    <div class="stat"><span class="num" id="st-pac">…</span><span class="lbl">personas registradas</span></div>
+    <div class="stat"><span class="num" id="st-enc" style="color:var(--ok)">…</span><span class="lbl">encontradas</span></div>
+    <div class="stat"><span class="num" id="st-alta" style="color:var(--blue)">…</span><span class="lbl">dadas de alta</span></div>
+    <div class="stat"><span class="num" id="st-prof" style="color:var(--violet)">…</span><span class="lbl">profesionales de salud mental</span></div>
+    <div class="stat"><span class="num" id="st-emp" style="color:var(--blue)">…</span><span class="lbl">buscando empleo</span></div>
+    <div class="stat"><span class="num" id="st-sol">…</span><span class="lbl">vacantes y peticiones</span></div>
+  </div>
+  <p class="lastreg" id="lastreg"></p>
+</div>
+
+<section id="plataformas" class="wrap">
+  <div class="sec-h"><h2>Las tres plataformas de la red</h2><p>Cada una vive en su propia dirección, con su color y su misión. Todas comparten la misma base de datos comunitaria.</p></div>
+  <div class="grid3">
     <a class="card teal" href="https://hospitalesenvenezuela.com">
-      <span class="ic">🏥</span>
-      <h2>Hospitales en Venezuela</h2>
+      <span class="ic">🏥</span><h3>Hospitales en Venezuela</h3>
       <p>Busca a tu familiar ingresado en hospitales y centros de salud, revisa el estado de cada centro y ayuda registrando datos como voluntario.</p>
-      <span class="go">Buscar a mi familiar</span>
-      <span class="dom">hospitalesenvenezuela.com</span>
+      <span class="go">Buscar a mi familiar</span><span class="dom">hospitalesenvenezuela.com</span>
     </a>
     <a class="card violet" href="https://psicologosenvenezuela.com">
-      <span class="ic">🧠</span>
-      <h2>Psicólogos en Venezuela</h2>
+      <span class="ic">🧠</span><h3>Psicólogos en Venezuela</h3>
       <p>Psicólogos y psiquiatras con credencial verificable, muchos gratuitos. Test de ansiedad de 2 minutos y mural de peticiones de apoyo.</p>
-      <span class="go">Necesito hablar con alguien</span>
-      <span class="dom">psicologosenvenezuela.com</span>
+      <span class="go">Necesito hablar con alguien</span><span class="dom">psicologosenvenezuela.com</span>
     </a>
     <a class="card blue" href="https://empleoenvenezuela.com">
-      <span class="ic">💼</span>
-      <h2>Empleo en Venezuela</h2>
-      <p>Publica tu perfil gratis con tu experiencia y disponibilidad, o consigue voluntarios y personal para tu empresa, acopio o refugio.</p>
-      <span class="go">Buscar trabajo o ayudar</span>
-      <span class="dom">empleoenvenezuela.com</span>
+      <span class="ic">💼</span><h3>Empleo en Venezuela</h3>
+      <p>Tu perfil profesional gratis, como una red de trabajo comunitaria: experiencia, habilidades y disponibilidad. Empresas y refugios te contactan directo.</p>
+      <span class="go">Buscar trabajo o ayudar</span><span class="dom">empleoenvenezuela.com</span>
     </a>
   </div>
+</section>
 
-  <div class="how">
-    <h2>Cómo funciona la red</h2>
-    <p>Las tres plataformas son comunitarias: los datos los cargan voluntarios, familiares, profesionales y empresas de toda Venezuela. Todo es público, gratuito y verificable, con teléfonos protegidos y moderación de reportes.</p>
-    <p>Si puedes ayudar, entra a cualquiera de las tres y publica lo que sabes: un paciente ingresado, tu disponibilidad como profesional o una vacante. Cada dato le ahorra horas de angustia a una familia.</p>
-    <p><b>Emergencias: llama al 171.</b> La red no sustituye atención médica de emergencia.</p>
+<section id="registro" class="wrap">
+  <div class="centro">
+    <div>
+      <h2>¿Perdiste todo, hasta tu computadora? Igual puedes postularte.</h2>
+      <p>Si el sismo se llevó tu casa, tu trabajo y tus equipos, tus habilidades siguen intactas. Estamos preparando un <b>centro de registro presencial</b> en Las Mercedes, Caracas:</p>
+      <ul>
+        <li><span class="b">💻</span> 10 computadoras listas para crear tu perfil profesional con ayuda de voluntarios</li>
+        <li><span class="b">🛰️</span> Internet satelital para que el registro funcione aunque la zona no tenga conexión</li>
+        <li><span class="b">🤝</span> Te acompañamos paso a paso y quedas visible para empresas, acopios y refugios</li>
+      </ul>
+      <p>Déjanos tu nombre y tu WhatsApp y te avisamos apenas abramos, con la dirección exacta y los horarios.</p>
+    </div>
+    <div class="cbox">
+      <h3>📋 Avísame cuando abra el centro</h3>
+      <p class="cnt" id="aviso-cnt"></p>
+      <input class="fld" id="av-nombre" maxlength="120" placeholder="Tu nombre y apellido *">
+      <input class="fld" id="av-tel" inputmode="tel" maxlength="30" placeholder="Tu WhatsApp * Ej: 0414 1234567">
+      <input class="fld" id="av-hab" maxlength="300" placeholder="Tus habilidades (opcional) Ej: cocina, albañilería">
+      <input class="fld" id="av-zona" maxlength="120" placeholder="Tu zona (opcional) Ej: Petare">
+      <button class="send" id="av-send">Quiero que me avisen</button>
+      <p class="fmsg" id="av-msg"></p>
+    </div>
   </div>
+</section>
 
-  <footer>
-    <b>enVenezuela.app</b>, la matriz de la red de ayuda tras el sismo.<br>
-    hospitalesenvenezuela.com · psicologosenvenezuela.com · empleoenvenezuela.com<br>
+<section class="wrap">
+  <div class="sec-h"><h2>Las reglas de la red</h2><p>Claras y para todos. Son las que hacen que la comunidad confíe.</p></div>
+  <div class="grid6">
+    <div class="rule"><span class="e">🆓</span><b>Todo es gratis, siempre</b><p>Buscar, registrarte, publicar y contactar. Nadie te puede cobrar por usar la red.</p></div>
+    <div class="rule"><span class="e">🚩</span><b>Nadie paga por trabajo</b><p>Si alguien pide dinero por conseguirte empleo o voluntarios, repórtalo con la bandera.</p></div>
+    <div class="rule"><span class="e">🔒</span><b>Teléfonos protegidos</b><p>Los números se publican ocultos y solo se revelan a quien se identifica.</p></div>
+    <div class="rule"><span class="e">✅</span><b>Datos verificables</b><p>Credenciales FPV y MPPS con enlace público de verificación, y reportes comunitarios.</p></div>
+    <div class="rule"><span class="e">🌐</span><b>Web para todos</b><p>Nada que descargar: funciona en cualquier teléfono o computadora, hasta con mala señal.</p></div>
+    <div class="rule"><span class="e">🚨</span><b>Emergencias: 171</b><p>La red no sustituye atención médica de emergencia ni a los cuerpos de rescate.</p></div>
+  </div>
+</section>
+
+<section id="fundacion" class="wrap">
+  <div class="sec-h"><h2>La fundación</h2><p>enVenezuela.app es la matriz que conecta y cuida las plataformas de la red.</p></div>
+  <div class="fund">
+    <div>
+      <h2>Qué estamos construyendo</h2>
+      <p><b>Un sistema comunitario de respuesta al sismo:</b> personas ingresadas y centros de salud, apoyo emocional verificado, y una red de empleo y voluntariado para reconstruir.</p>
+      <p><b>Lo que viene:</b> centros de registro presenciales con equipos e internet satelital, más profesionales verificados y nuevas verticales según lo que la comunidad necesite.</p>
+      <p><b>Quiénes lo hacen:</b> voluntarios de toda Venezuela. Los datos los carga y modera la propia comunidad.</p>
+      <p class="mini">Transparencia: la red fue construida por voluntarios con asistencia de inteligencia artificial (Claude), lo que nos permite avanzar rápido con un equipo pequeño. Emergencias: llama al 171.</p>
+    </div>
+    <div id="unete">
+      <h2>¿Tienes una iniciativa? Únete</h2>
+      <p>Centros de acopio, refugios, iglesias, ONGs, empresas, tecnología o cualquier idea que sume: cuéntanos y te contactamos.</p>
+      <label for="in-nombre">Tu nombre o el de tu organización *</label>
+      <input class="fld" id="in-nombre" maxlength="120" placeholder="Ej: Acopio La Candelaria">
+      <label for="in-tipo">Tipo de iniciativa *</label>
+      <select class="fld" id="in-tipo">
+        <option value="acopio">Centro de acopio</option>
+        <option value="refugio">Refugio</option>
+        <option value="ong_iglesia">ONG / iglesia</option>
+        <option value="empresa">Empresa</option>
+        <option value="voluntariado">Voluntariado</option>
+        <option value="tecnologia">Tecnología</option>
+        <option value="otra">Otra</option>
+      </select>
+      <label for="in-contacto">WhatsApp o correo *</label>
+      <input class="fld" id="in-contacto" maxlength="120" placeholder="Para contactarte">
+      <label for="in-desc">Cuéntanos en pocas líneas</label>
+      <textarea class="fld" id="in-desc" rows="3" maxlength="500" placeholder="Qué hacen y cómo quieren sumarse a la red"></textarea>
+      <button class="send" id="in-send">Enviar a la fundación</button>
+      <p class="fmsg" id="in-msg"></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>enVenezuela.app</b> · Fundación y matriz de la red de ayuda tras el sismo<br>
+    <a href="https://hospitalesenvenezuela.com">hospitalesenvenezuela.com</a> · <a href="https://psicologosenvenezuela.com">psicologosenvenezuela.com</a> · <a href="https://empleoenvenezuela.com">empleoenvenezuela.com</a><br>
     Iniciativa comunitaria sin fines de lucro. Hecha por voluntarios, para Venezuela.
-  </footer>
-</div>
+  </div>
+</footer>
+
 <script>
-(async function(){
-  const BASE="https://ozuxfepfkvnxkywdsqxy.supabase.co/rest/v1/rpc/";
-  const KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96dXhmZXBma3ZueGt5d2RzcXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MjI5NTEsImV4cCI6MjA5Nzk5ODk1MX0.YhW0GalGkQZdO2NJTg_01C5XhdMmJ6RbNSNXXC0xG4o";
-  const call=n=>fetch(BASE+n,{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+KEY,"Content-Type":"application/json"},body:"{}"}).then(r=>r.ok?r.json():null).catch(()=>null);
-  const fmt=n=>Number(n||0).toLocaleString("es-VE");
+(function(){
+const BASE="https://ozuxfepfkvnxkywdsqxy.supabase.co/rest/v1/rpc/";
+const KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96dXhmZXBma3ZueGt5d2RzcXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MjI5NTEsImV4cCI6MjA5Nzk5ODk1MX0.YhW0GalGkQZdO2NJTg_01C5XhdMmJ6RbNSNXXC0xG4o";
+const $=id=>document.getElementById(id);
+const call=(n,body)=>fetch(BASE+n,{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+KEY,"Content-Type":"application/json"},body:JSON.stringify(body||{})}).then(r=>r.ok?r.json():null).catch(()=>null);
+const fmt=n=>Number(n||0).toLocaleString("es-VE");
+let DEV="";try{DEV=localStorage.getItem("red_dev")||("d"+Math.random().toString(36).slice(2)+Date.now().toString(36));localStorage.setItem("red_dev",DEV);}catch(e){DEV="d"+Date.now();}
+function anim(el,v){if(!el)return;const from=parseInt((el.textContent||"0").replace(/\D/g,""))||0;if(from===v){el.textContent=fmt(v);return;}
+  const t0=performance.now();(function step(t){const p=Math.min(1,(t-t0)/700);el.textContent=fmt(Math.round(from+(v-from)*p));if(p<1)requestAnimationFrame(step);})(t0);}
+function rel(iso){try{const s=(Date.now()-new Date(iso).getTime())/1e3;if(s<90)return"hace un momento";if(s<3600)return"hace "+Math.round(s/60)+" min";if(s<86400)return"hace "+Math.round(s/3600)+" h";return"hace "+Math.round(s/86400)+" días";}catch(e){return"";}}
+async function stats(){
   const [h,p,e]=await Promise.all([call("estadisticas"),call("psi_estadisticas"),call("emp_estadisticas")]);
-  let any=false;
-  if(h&&h.pacientes!=null){document.getElementById("st-pac").textContent=fmt(h.pacientes);any=true;}
-  if(p&&(p.profesionales!=null||p.total!=null)){document.getElementById("st-prof").textContent=fmt(p.profesionales!=null?p.profesionales:p.total);any=true;}
-  if(e&&(e.perfiles!=null||e.total!=null)){document.getElementById("st-emp").textContent=fmt(e.perfiles!=null?e.perfiles:e.total);any=true;}
-  if(any)document.getElementById("stats").hidden=false;
+  if(h){anim($("st-pac"),h.pacientes||0);anim($("st-enc"),h.encontradas||0);anim($("st-alta"),h.altas||0);
+    if(h.ultima_registrada)$("lastreg").innerHTML='Última persona registrada en la red: <b>'+rel(h.ultima_registrada)+'</b>';}
+  if(p)anim($("st-prof"),p.profesionales||0);
+  if(e){anim($("st-emp"),e.perfiles||0);anim($("st-sol"),e.solicitudes_abiertas||0);}
+}
+stats();setInterval(stats,60000);
+call("red_stats").then(r=>{if(r&&r.avisos>0)$("aviso-cnt").textContent=fmt(r.avisos)+(r.avisos===1?" persona ya está":" personas ya están")+" en la lista de aviso.";});
+$("av-send").addEventListener("click",async()=>{
+  const n=$("av-nombre").value.trim(),t=$("av-tel").value.trim(),m=$("av-msg");
+  if(!n||t.replace(/\D/g,"").length<7){m.style.color="#ffd7d7";m.textContent="Escribe tu nombre y un WhatsApp válido.";return;}
+  const b=$("av-send");b.disabled=true;b.textContent="Enviando…";
+  const r=await call("red_aviso_registro",{p_nombre:n,p_telefono:t,p_habilidades:$("av-hab").value.trim()||null,p_zona:$("av-zona").value.trim()||null,p_device:DEV});
+  b.disabled=false;b.textContent="Quiero que me avisen";
+  if(r&&r.ok){m.style.color="#d9ffe6";m.textContent="✅ Listo, quedaste en la lista. Te escribimos por WhatsApp cuando abramos.";if(r.total)$("aviso-cnt").textContent=fmt(r.total)+" personas ya están en la lista de aviso.";$("av-nombre").value="";$("av-tel").value="";$("av-hab").value="";$("av-zona").value="";}
+  else if(r&&r.error==="rate"){m.style.color="#ffd7d7";m.textContent="Ya enviaste varias veces. Intenta más tarde.";}
+  else{m.style.color="#ffd7d7";m.textContent="No se pudo enviar. Revisa tu conexión e intenta de nuevo.";}
+});
+$("in-send").addEventListener("click",async()=>{
+  const n=$("in-nombre").value.trim(),c=$("in-contacto").value.trim(),m=$("in-msg");
+  if(!n||!c){m.style.color="#b42318";m.textContent="Completa el nombre y el contacto.";return;}
+  const b=$("in-send");b.disabled=true;b.textContent="Enviando…";
+  const r=await call("red_registrar_iniciativa",{p_nombre:n,p_tipo:$("in-tipo").value,p_contacto:c,p_descripcion:$("in-desc").value.trim()||null,p_device:DEV});
+  b.disabled=false;b.textContent="Enviar a la fundación";
+  if(r&&r.ok){m.style.color="var(--ok)";m.textContent="✅ Recibido. La fundación te contactará pronto.";$("in-nombre").value="";$("in-contacto").value="";$("in-desc").value="";}
+  else if(r&&r.error==="rate"){m.style.color="#b42318";m.textContent="Ya enviaste varias veces. Intenta más tarde.";}
+  else{m.style.color="#b42318";m.textContent="No se pudo enviar. Intenta de nuevo.";}
+});
 })();
 </script>
 </body>
