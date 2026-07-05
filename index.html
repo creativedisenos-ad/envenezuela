@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>enVenezuela.com · La red de ayuda tras el sismo</title>
+<meta name="description" content="Red comunitaria y gratuita: encuentra a tu familiar ingresado, recibe apoyo emocional verificado y consigue trabajo o voluntariado tras el sismo.">
+<meta property="og:title" content="enVenezuela.com · La red de ayuda tras el sismo">
+<meta property="og:description" content="Tres plataformas hermanas, gratuitas y comunitarias: hospitales, psicólogos y empleo en Venezuela.">
+<meta name="theme-color" content="#101828">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6fa; --surface:#ffffff; --ink:#101828; --ink-2:#344054; --muted:#667085;
+  --line:rgba(16,24,40,.15); --line-2:rgba(16,24,40,.08);
+  --teal:#0a8d8f; --teal-deep:#076b6d; --violet:#6d4fe0; --violet-deep:#4e35b5; --blue:#1a56db; --blue-deep:#173ea5;
+  --r-card:1.1rem; --r-btn:.75rem; --r-pill:999px;
+  --shadow-card:0 2px 8px rgba(10,20,40,.05),0 14px 36px rgba(10,20,40,.09);
+  --shadow-pop:0 24px 56px -8px rgba(10,20,40,.24);
+  --shadow-btn:0 2px 4px rgba(10,20,40,.16),0 8px 20px rgba(10,20,40,.30);
+  --ease:cubic-bezier(.32,.72,0,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:17px}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh}
+h1,h2,h3{letter-spacing:-.02em}
+.wrap{max-width:1040px;margin:0 auto;padding:1.2rem 1.1rem 3rem}
+header{padding:2.6rem 0 1.4rem;text-align:center}
+.logo{display:inline-flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.35rem}
+.logo .mark{width:2.6rem;height:2.6rem;border-radius:.85rem;background:linear-gradient(135deg,#0a8d8f 0%,#6d4fe0 52%,#1a56db 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.25rem;box-shadow:var(--shadow-btn)}
+.logo b{color:var(--ink)}.logo span.dom{color:var(--muted);font-weight:600}
+h1{font-size:clamp(1.7rem,4.5vw,2.6rem);margin:1.4rem auto .7rem;max-width:760px;line-height:1.18}
+h1 .grad{background:linear-gradient(90deg,#0a8d8f,#6d4fe0 55%,#1a56db);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--ink-2);max-width:640px;margin:0 auto;font-size:1.02rem}
+.badge-fund{display:inline-block;margin-top:1rem;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-pill);padding:.45rem 1.05rem;font-size:.85rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-card)}
+.stats{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin:1.8rem 0 .4rem}
+.stat{background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-card);padding:.9rem 1.4rem;min-width:9.5rem;box-shadow:var(--shadow-card);text-align:center}
+.stat .num{display:block;font-size:1.55rem;font-weight:800}
+.stat .lbl{font-size:.8rem;color:var(--muted);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2.2rem}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{display:flex;flex-direction:column;background:var(--surface);border-radius:var(--r-card);padding:1.5rem 1.4rem 1.4rem;text-decoration:none;color:var(--ink);border:1px solid var(--line-2);box-shadow:var(--shadow-card);transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+@media(hover:hover){.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-pop)}}
+.card .ic{width:3.1rem;height:3.1rem;border-radius:.95rem;display:flex;align-items:center;justify-content:center;font-size:1.45rem;color:#fff;margin-bottom:1rem;box-shadow:var(--shadow-btn)}
+.card.teal .ic{background:linear-gradient(135deg,#12b3b5,var(--teal-deep))}
+.card.violet .ic{background:linear-gradient(135deg,#8b6cf0,var(--violet-deep))}
+.card.blue .ic{background:linear-gradient(135deg,#3f83f8,var(--blue-deep))}
+.card h2{font-size:1.12rem;margin-bottom:.35rem}
+.card p{font-size:.92rem;color:var(--ink-2);flex:1}
+.card .go{margin-top:1.1rem;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;font-weight:700;font-size:.95rem;color:#fff;border-radius:var(--r-btn);padding:.8rem 1rem;box-shadow:var(--shadow-btn);transition:filter .2s}
+.card.teal .go{background:linear-gradient(135deg,#12b3b5,var(--teal-deep))}
+.card.violet .go{background:linear-gradient(135deg,#8b6cf0,var(--violet-deep))}
+.card.blue .go{background:linear-gradient(135deg,#3f83f8,var(--blue-deep))}
+@media(hover:hover){.card:hover .go{filter:brightness(1.07)}}
+.card .dom{font-size:.8rem;color:var(--muted);font-weight:600;margin-top:.6rem;text-align:center}
+.how{margin-top:3rem;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-card);padding:1.6rem 1.4rem;box-shadow:var(--shadow-card)}
+.how h2{font-size:1.15rem;margin-bottom:.9rem}
+.how p{font-size:.94rem;color:var(--ink-2);margin-bottom:.7rem}
+footer{margin-top:2.6rem;text-align:center;color:var(--muted);font-size:.83rem;line-height:1.7}
+footer b{color:var(--ink-2)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><span class="mark">✚</span><span><b>en</b><span class="dom">Venezuela.com</span></span></div>
+    <h1>Una sola red de ayuda, <span class="grad">tres plataformas hermanas</span>, gratis y para todos.</h1>
+    <p class="sub">Tras el sismo nos organizamos como comunidad: aquí encuentras a tu familiar ingresado, recibes apoyo emocional de profesionales verificados y consigues trabajo o voluntariado. Sin pagos, sin intermediarios.</p>
+    <span class="badge-fund">Iniciativa comunitaria sin fines de lucro</span>
+  </header>
+
+  <div class="stats" id="stats" hidden>
+    <div class="stat"><span class="num" id="st-pac">…</span><span class="lbl">personas registradas</span></div>
+    <div class="stat"><span class="num" id="st-prof">…</span><span class="lbl">profesionales de salud mental</span></div>
+    <div class="stat"><span class="num" id="st-emp">…</span><span class="lbl">personas buscando empleo</span></div>
+  </div>
+
+  <div class="grid">
+    <a class="card teal" href="https://hospitalesenvenezuela.com">
+      <span class="ic">🏥</span>
+      <h2>Hospitales en Venezuela</h2>
+      <p>Busca a tu familiar ingresado en hospitales y centros de salud, revisa el estado de cada centro y ayuda registrando datos como voluntario.</p>
+      <span class="go">Buscar a mi familiar</span>
+      <span class="dom">hospitalesenvenezuela.com</span>
+    </a>
+    <a class="card violet" href="https://psicologosenvenezuela.com">
+      <span class="ic">🧠</span>
+      <h2>Psicólogos en Venezuela</h2>
+      <p>Psicólogos y psiquiatras con credencial verificable, muchos gratuitos. Test de ansiedad de 2 minutos y mural de peticiones de apoyo.</p>
+      <span class="go">Necesito hablar con alguien</span>
+      <span class="dom">psicologosenvenezuela.com</span>
+    </a>
+    <a class="card blue" href="https://empleoenvenezuela.com">
+      <span class="ic">💼</span>
+      <h2>Empleo en Venezuela</h2>
+      <p>Publica tu perfil gratis con tu experiencia y disponibilidad, o consigue voluntarios y personal para tu empresa, acopio o refugio.</p>
+      <span class="go">Buscar trabajo o ayudar</span>
+      <span class="dom">empleoenvenezuela.com</span>
+    </a>
+  </div>
+
+  <div class="how">
+    <h2>Cómo funciona la red</h2>
+    <p>Las tres plataformas son comunitarias: los datos los cargan voluntarios, familiares, profesionales y empresas de toda Venezuela. Todo es público, gratuito y verificable, con teléfonos protegidos y moderación de reportes.</p>
+    <p>Si puedes ayudar, entra a cualquiera de las tres y publica lo que sabes: un paciente ingresado, tu disponibilidad como profesional o una vacante. Cada dato le ahorra horas de angustia a una familia.</p>
+    <p><b>Emergencias: llama al 171.</b> La red no sustituye atención médica de emergencia.</p>
+  </div>
+
+  <footer>
+    <b>enVenezuela.com</b>, la matriz de la red de ayuda tras el sismo.<br>
+    hospitalesenvenezuela.com · psicologosenvenezuela.com · empleoenvenezuela.com<br>
+    Iniciativa comunitaria sin fines de lucro. Hecha por voluntarios, para Venezuela.
+  </footer>
+</div>
+<script>
+(async function(){
+  const BASE="https://ozuxfepfkvnxkywdsqxy.supabase.co/rest/v1/rpc/";
+  const KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96dXhmZXBma3ZueGt5d2RzcXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MjI5NTEsImV4cCI6MjA5Nzk5ODk1MX0.YhW0GalGkQZdO2NJTg_01C5XhdMmJ6RbNSNXXC0xG4o";
+  const call=n=>fetch(BASE+n,{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+KEY,"Content-Type":"application/json"},body:"{}"}).then(r=>r.ok?r.json():null).catch(()=>null);
+  const fmt=n=>Number(n||0).toLocaleString("es-VE");
+  const [h,p,e]=await Promise.all([call("estadisticas"),call("psi_estadisticas"),call("emp_estadisticas")]);
+  let any=false;
+  if(h&&h.pacientes!=null){document.getElementById("st-pac").textContent=fmt(h.pacientes);any=true;}
+  if(p&&(p.profesionales!=null||p.total!=null)){document.getElementById("st-prof").textContent=fmt(p.profesionales!=null?p.profesionales:p.total);any=true;}
+  if(e&&(e.perfiles!=null||e.total!=null)){document.getElementById("st-emp").textContent=fmt(e.perfiles!=null?e.perfiles:e.total);any=true;}
+  if(any)document.getElementById("stats").hidden=false;
+})();
+</script>
+</body>
+</html>
