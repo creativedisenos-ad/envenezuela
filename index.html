@@ -7,6 +7,7 @@
 <meta name="description" content="Fundación comunitaria sin fines de lucro: encuentra a tu familiar ingresado, recibe apoyo emocional verificado y consigue trabajo o voluntariado. Todo gratis, todo web, para todos.">
 <meta property="og:title" content="enVenezuela.app · La red de ayuda tras el sismo">
 <meta property="og:description" content="Una fundación, tres plataformas: hospitales, psicólogos y empleo. Datos en vivo, centro de registro presencial y comunidad.">
+<meta property="og:locale" content="es_VE">
 <meta name="theme-color" content="#101828">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +42,16 @@ nav::-webkit-scrollbar{display:none}
 nav a{text-decoration:none;font-size:.86rem;font-weight:600;color:var(--ink-2);padding:.45rem .7rem;border-radius:var(--r-pill);white-space:nowrap}
 nav a:hover{background:var(--bg)}
 nav a.cta{background:var(--grad);color:#fff;box-shadow:var(--shadow-btn)}
+.lang-wrap{position:relative;flex:none}
+.lang-pill{display:inline-flex;align-items:center;gap:.35rem;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-pill);padding:.42rem .8rem;font:inherit;font-size:.82rem;font-weight:700;color:var(--ink-2);cursor:pointer;box-shadow:var(--shadow-s);white-space:nowrap}
+.lang-pill:hover{background:var(--bg)}
+#lang-menu{position:absolute;top:calc(100% + .5rem);right:0;background:var(--surface);border:1px solid var(--line-2);border-radius:.9rem;box-shadow:var(--shadow-pop);padding:.35rem;min-width:11.5rem;max-height:16rem;overflow-y:auto;z-index:60}
+#lang-menu button{display:flex;align-items:center;gap:.55rem;width:100%;border:none;background:none;font:inherit;font-size:.9rem;font-weight:600;color:var(--ink-2);padding:.5rem .7rem;border-radius:.6rem;cursor:pointer;text-align:left}
+#lang-menu button:hover{background:var(--bg)}
+#lang-menu button.on{background:var(--bg);color:var(--ink)}
+[dir="rtl"] #lang-menu{right:auto;left:0}
+[dir="rtl"] #lang-menu button{text-align:right}
+[dir="rtl"] nav{margin-left:0;margin-right:auto}
 header.hero{text-align:center;padding:3.4rem 0 1.6rem}
 .badge-f{display:inline-flex;align-items:center;gap:.45rem;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-pill);padding:.45rem 1rem;font-size:.82rem;font-weight:600;color:var(--ink-2);box-shadow:var(--shadow-card)}
 .badge-f .d{width:.55rem;height:.55rem;border-radius:50%;background:var(--ok);animation:pulse 1.6s infinite}
@@ -125,54 +136,58 @@ footer b{color:var(--ink-2)}
 <div class="top"><div class="wrap in">
   <a class="logo" href="#"><span class="mark">✚</span><span><b>en</b><span class="dom">Venezuela.app</span></span></a>
   <nav>
-    <a href="#plataformas">Plataformas</a>
-    <a href="#envivo">En vivo</a>
-    <a href="#registro">Regístrate</a>
-    <a href="#fundacion">Fundación</a>
-    <a href="#unete" class="cta">Únete</a>
+    <a href="#plataformas" data-i18n="nav_plat">Plataformas</a>
+    <a href="#envivo" data-i18n="nav_vivo">En vivo</a>
+    <a href="#registro" data-i18n="nav_reg">Regístrate</a>
+    <a href="#fundacion" data-i18n="nav_fund">Fundación</a>
+    <a href="#unete" class="cta" data-i18n="nav_unete">Únete</a>
   </nav>
+  <div class="lang-wrap">
+    <button id="lang-btn" class="lang-pill" type="button" aria-haspopup="listbox" aria-expanded="false" data-i18n-aria="lang_aria" aria-label="Cambiar idioma"><span aria-hidden="true">🌐</span><span id="lang-cur">ES</span></button>
+    <div id="lang-menu" role="listbox" hidden></div>
+  </div>
 </div></div>
 
 <header class="hero wrap">
-  <span class="badge-f"><span class="d"></span> Fundación comunitaria · sin fines de lucro · red en vivo</span>
-  <h1>Una sola red de ayuda, <span class="grad">tres plataformas hermanas</span>, gratis y para todos.</h1>
-  <p class="sub">Tras el sismo nos organizamos como comunidad: aquí encuentras a tu familiar ingresado, recibes apoyo emocional de profesionales verificados y consigues trabajo o voluntariado. Sin pagos, sin descargas, sin intermediarios: pura web, en tu teléfono o en tu computadora.</p>
+  <span class="badge-f"><span class="d"></span> <span data-i18n="badge_f">Fundación comunitaria · sin fines de lucro · red en vivo</span></span>
+  <h1 data-i18n-html="h1">Una sola red de ayuda, <span class="grad">tres plataformas hermanas</span>, gratis y para todos.</h1>
+  <p class="sub" data-i18n="hero_sub">Tras el sismo nos organizamos como comunidad: aquí encuentras a tu familiar ingresado, recibes apoyo emocional de profesionales verificados y consigues trabajo o voluntariado. Sin pagos, sin descargas, sin intermediarios: pura web, en tu teléfono o en tu computadora.</p>
   <div class="ctas">
-    <a class="btn primary" href="#plataformas">Ver las plataformas</a>
-    <a class="btn ghost" href="#registro">¿Perdiste todo? Regístrate</a>
+    <a class="btn primary" href="#plataformas" data-i18n="cta_ver">Ver las plataformas</a>
+    <a class="btn ghost" href="#registro" data-i18n="cta_reg">¿Perdiste todo? Regístrate</a>
   </div>
 </header>
 
 <div class="wrap" id="envivo">
-  <div class="livehead"><span class="d"></span> LA RED EN VIVO</div>
+  <div class="livehead"><span class="d"></span> <span data-i18n="livehead">LA RED EN VIVO</span></div>
   <div class="stats">
-    <div class="stat"><span class="num" id="st-pac">…</span><span class="lbl">personas registradas</span></div>
-    <div class="stat"><span class="num" id="st-enc" style="color:var(--ok)">…</span><span class="lbl">encontradas</span></div>
-    <div class="stat"><span class="num" id="st-alta" style="color:var(--blue)">…</span><span class="lbl">dadas de alta</span></div>
-    <div class="stat"><span class="num" id="st-prof" style="color:var(--violet)">…</span><span class="lbl">profesionales de salud mental</span></div>
-    <div class="stat"><span class="num" id="st-emp" style="color:var(--blue)">…</span><span class="lbl">buscando empleo</span></div>
-    <div class="stat"><span class="num" id="st-sol">…</span><span class="lbl">vacantes y peticiones</span></div>
+    <div class="stat"><span class="num" id="st-pac">…</span><span class="lbl" data-i18n="st_pac">personas registradas</span></div>
+    <div class="stat"><span class="num" id="st-enc" style="color:var(--ok)">…</span><span class="lbl" data-i18n="st_enc">encontradas</span></div>
+    <div class="stat"><span class="num" id="st-alta" style="color:var(--blue)">…</span><span class="lbl" data-i18n="st_alta">dadas de alta</span></div>
+    <div class="stat"><span class="num" id="st-prof" style="color:var(--violet)">…</span><span class="lbl" data-i18n="st_prof">profesionales de salud mental</span></div>
+    <div class="stat"><span class="num" id="st-emp" style="color:var(--blue)">…</span><span class="lbl" data-i18n="st_emp">buscando empleo</span></div>
+    <div class="stat"><span class="num" id="st-sol">…</span><span class="lbl" data-i18n="st_sol">vacantes y peticiones</span></div>
   </div>
   <p class="lastreg" id="lastreg"></p>
 </div>
 
 <section id="plataformas" class="wrap">
-  <div class="sec-h"><h2>Las tres plataformas de la red</h2><p>Cada una vive en su propia dirección, con su color y su misión. Todas comparten la misma base de datos comunitaria.</p></div>
+  <div class="sec-h"><h2 data-i18n="plat_t">Las tres plataformas de la red</h2><p data-i18n="plat_p">Cada una vive en su propia dirección, con su color y su misión. Todas comparten la misma base de datos comunitaria.</p></div>
   <div class="grid3">
     <a class="card teal" href="https://hospitalesenvenezuela.com">
-      <span class="ic">🏥</span><h3>Hospitales en Venezuela</h3>
-      <p>Busca a tu familiar ingresado en hospitales y centros de salud, revisa el estado de cada centro y ayuda registrando datos como voluntario.</p>
-      <span class="go">Buscar a mi familiar</span><span class="dom">hospitalesenvenezuela.com</span>
+      <span class="ic">🏥</span><h3 data-i18n="hosp_t">Hospitales en Venezuela</h3>
+      <p data-i18n="hosp_p">Busca a tu familiar ingresado en hospitales y centros de salud, revisa el estado de cada centro y ayuda registrando datos como voluntario.</p>
+      <span class="go" data-i18n="hosp_go">Buscar a mi familiar</span><span class="dom">hospitalesenvenezuela.com</span>
     </a>
     <a class="card violet" href="https://psicologosenvenezuela.com">
-      <span class="ic">🧠</span><h3>Psicólogos en Venezuela</h3>
-      <p>Psicólogos y psiquiatras con credencial verificable, muchos gratuitos. Test de ansiedad de 2 minutos y mural de peticiones de apoyo.</p>
-      <span class="go">Necesito hablar con alguien</span><span class="dom">psicologosenvenezuela.com</span>
+      <span class="ic">🧠</span><h3 data-i18n="psi_t">Psicólogos en Venezuela</h3>
+      <p data-i18n="psi_p">Psicólogos y psiquiatras con credencial verificable, muchos gratuitos. Test de ansiedad de 2 minutos y mural de peticiones de apoyo.</p>
+      <span class="go" data-i18n="psi_go">Necesito hablar con alguien</span><span class="dom">psicologosenvenezuela.com</span>
     </a>
     <a class="card blue" href="https://empleoenvenezuela.com">
-      <span class="ic">💼</span><h3>Empleo en Venezuela</h3>
-      <p>Tu perfil profesional gratis, como una red de trabajo comunitaria: experiencia, habilidades y disponibilidad. Empresas y refugios te contactan directo.</p>
-      <span class="go">Buscar trabajo o ayudar</span><span class="dom">empleoenvenezuela.com</span>
+      <span class="ic">💼</span><h3 data-i18n="emp_t">Empleo en Venezuela</h3>
+      <p data-i18n="emp_p">Tu perfil profesional gratis, como una red de trabajo comunitaria: experiencia, habilidades y disponibilidad. Empresas y refugios te contactan directo.</p>
+      <span class="go" data-i18n="emp_go">Buscar trabajo o ayudar</span><span class="dom">empleoenvenezuela.com</span>
     </a>
   </div>
 </section>
@@ -180,70 +195,70 @@ footer b{color:var(--ink-2)}
 <section id="registro" class="wrap">
   <div class="centro">
     <div>
-      <h2>¿Perdiste todo, hasta tu computadora? Igual puedes postularte.</h2>
-      <p>Si el sismo se llevó tu casa, tu trabajo y tus equipos, tus habilidades siguen intactas. Estamos preparando un <b>centro de registro presencial</b> en Las Mercedes, Caracas:</p>
+      <h2 data-i18n="centro_t">¿Perdiste todo, hasta tu computadora? Igual puedes postularte.</h2>
+      <p data-i18n-html="centro_p1">Si el sismo se llevó tu casa, tu trabajo y tus equipos, tus habilidades siguen intactas. Estamos preparando un <b>centro de registro presencial</b> en Las Mercedes, Caracas:</p>
       <ul>
-        <li><span class="b">💻</span> 10 computadoras listas para crear tu perfil profesional con ayuda de voluntarios</li>
-        <li><span class="b">🛰️</span> Internet satelital para que el registro funcione aunque la zona no tenga conexión</li>
-        <li><span class="b">🤝</span> Te acompañamos paso a paso y quedas visible para empresas, acopios y refugios</li>
+        <li><span class="b">💻</span> <span data-i18n="centro_li1">10 computadoras listas para crear tu perfil profesional con ayuda de voluntarios</span></li>
+        <li><span class="b">🛰️</span> <span data-i18n="centro_li2">Internet satelital para que el registro funcione aunque la zona no tenga conexión</span></li>
+        <li><span class="b">🤝</span> <span data-i18n="centro_li3">Te acompañamos paso a paso y quedas visible para empresas, acopios y refugios</span></li>
       </ul>
-      <p>Déjanos tu nombre y tu WhatsApp y te avisamos apenas abramos, con la dirección exacta y los horarios.</p>
+      <p data-i18n="centro_p2">Déjanos tu nombre y tu WhatsApp y te avisamos apenas abramos, con la dirección exacta y los horarios.</p>
     </div>
     <div class="cbox">
-      <h3>📋 Avísame cuando abra el centro</h3>
+      <h3 data-i18n="cbox_t">📋 Avísame cuando abra el centro</h3>
       <p class="cnt" id="aviso-cnt"></p>
-      <input class="fld" id="av-nombre" maxlength="120" placeholder="Tu nombre y apellido *">
-      <input class="fld" id="av-tel" inputmode="tel" maxlength="30" placeholder="Tu WhatsApp * Ej: 0414 1234567">
-      <input class="fld" id="av-hab" maxlength="300" placeholder="Tus habilidades (opcional) Ej: cocina, albañilería">
-      <input class="fld" id="av-zona" maxlength="120" placeholder="Tu zona (opcional) Ej: Petare">
-      <button class="send" id="av-send">Quiero que me avisen</button>
+      <input class="fld" id="av-nombre" maxlength="120" placeholder="Tu nombre y apellido *" data-i18n-ph="ph_nombre">
+      <input class="fld" id="av-tel" inputmode="tel" maxlength="30" placeholder="Tu WhatsApp * Ej: 0414 1234567" data-i18n-ph="ph_tel">
+      <input class="fld" id="av-hab" maxlength="300" placeholder="Tus habilidades (opcional) Ej: cocina, albañilería" data-i18n-ph="ph_hab">
+      <input class="fld" id="av-zona" maxlength="120" placeholder="Tu zona (opcional) Ej: Petare" data-i18n-ph="ph_zona">
+      <button class="send" id="av-send" data-i18n="av_send">Quiero que me avisen</button>
       <p class="fmsg" id="av-msg"></p>
     </div>
   </div>
 </section>
 
 <section class="wrap">
-  <div class="sec-h"><h2>Las reglas de la red</h2><p>Claras y para todos. Son las que hacen que la comunidad confíe.</p></div>
+  <div class="sec-h"><h2 data-i18n="rules_t">Las reglas de la red</h2><p data-i18n="rules_p">Claras y para todos. Son las que hacen que la comunidad confíe.</p></div>
   <div class="grid6">
-    <div class="rule"><span class="e">🆓</span><b>Todo es gratis, siempre</b><p>Buscar, registrarte, publicar y contactar. Nadie te puede cobrar por usar la red.</p></div>
-    <div class="rule"><span class="e">🚩</span><b>Nadie paga por trabajo</b><p>Si alguien pide dinero por conseguirte empleo o voluntarios, repórtalo con la bandera.</p></div>
-    <div class="rule"><span class="e">🔒</span><b>Teléfonos protegidos</b><p>Los números se publican ocultos y solo se revelan a quien se identifica.</p></div>
-    <div class="rule"><span class="e">✅</span><b>Datos verificables</b><p>Credenciales FPV y MPPS con enlace público de verificación, y reportes comunitarios.</p></div>
-    <div class="rule"><span class="e">🌐</span><b>Web para todos</b><p>Nada que descargar: funciona en cualquier teléfono o computadora, hasta con mala señal.</p></div>
-    <div class="rule"><span class="e">🚨</span><b>Emergencias: 171</b><p>La red no sustituye atención médica de emergencia ni a los cuerpos de rescate.</p></div>
+    <div class="rule"><span class="e">🆓</span><b data-i18n="r1_t">Todo es gratis, siempre</b><p data-i18n="r1_p">Buscar, registrarte, publicar y contactar. Nadie te puede cobrar por usar la red.</p></div>
+    <div class="rule"><span class="e">🚩</span><b data-i18n="r2_t">Nadie paga por trabajo</b><p data-i18n="r2_p">Si alguien pide dinero por conseguirte empleo o voluntarios, repórtalo con la bandera.</p></div>
+    <div class="rule"><span class="e">🔒</span><b data-i18n="r3_t">Teléfonos protegidos</b><p data-i18n="r3_p">Los números se publican ocultos y solo se revelan a quien se identifica.</p></div>
+    <div class="rule"><span class="e">✅</span><b data-i18n="r4_t">Datos verificables</b><p data-i18n="r4_p">Credenciales FPV y MPPS con enlace público de verificación, y reportes comunitarios.</p></div>
+    <div class="rule"><span class="e">🌐</span><b data-i18n="r5_t">Web para todos</b><p data-i18n="r5_p">Nada que descargar: funciona en cualquier teléfono o computadora, hasta con mala señal.</p></div>
+    <div class="rule"><span class="e">🚨</span><b data-i18n="r6_t">Emergencias: 171</b><p data-i18n="r6_p">La red no sustituye atención médica de emergencia ni a los cuerpos de rescate.</p></div>
   </div>
 </section>
 
 <section id="fundacion" class="wrap">
-  <div class="sec-h"><h2>La fundación</h2><p>enVenezuela.app es la matriz que conecta y cuida las plataformas de la red.</p></div>
+  <div class="sec-h"><h2 data-i18n="fund_sec_t">La fundación</h2><p data-i18n="fund_sec_p">enVenezuela.app es la matriz que conecta y cuida las plataformas de la red.</p></div>
   <div class="fund">
     <div>
-      <h2>Qué estamos construyendo</h2>
-      <p><b>Un sistema comunitario de respuesta al sismo:</b> personas ingresadas y centros de salud, apoyo emocional verificado, y una red de empleo y voluntariado para reconstruir.</p>
-      <p><b>Lo que viene:</b> centros de registro presenciales con equipos e internet satelital, más profesionales verificados y nuevas verticales según lo que la comunidad necesite.</p>
-      <p><b>Quiénes lo hacen:</b> voluntarios de toda Venezuela. Los datos los carga y modera la propia comunidad.</p>
-      <p class="mini">Transparencia: la red fue construida por voluntarios con asistencia de inteligencia artificial (Claude), lo que nos permite avanzar rápido con un equipo pequeño. Emergencias: llama al 171.</p>
+      <h2 data-i18n="fund_t">Qué estamos construyendo</h2>
+      <p data-i18n-html="fund_p1"><b>Un sistema comunitario de respuesta al sismo:</b> personas ingresadas y centros de salud, apoyo emocional verificado, y una red de empleo y voluntariado para reconstruir.</p>
+      <p data-i18n-html="fund_p2"><b>Lo que viene:</b> centros de registro presenciales con equipos e internet satelital, más profesionales verificados y nuevas verticales según lo que la comunidad necesite.</p>
+      <p data-i18n-html="fund_p3"><b>Quiénes lo hacen:</b> voluntarios de toda Venezuela. Los datos los carga y modera la propia comunidad.</p>
+      <p class="mini" data-i18n="fund_mini">Transparencia: la red fue construida por voluntarios con asistencia de inteligencia artificial (Claude), lo que nos permite avanzar rápido con un equipo pequeño. Emergencias: llama al 171.</p>
     </div>
     <div id="unete">
-      <h2>¿Tienes una iniciativa? Únete</h2>
-      <p>Centros de acopio, refugios, iglesias, ONGs, empresas, tecnología o cualquier idea que sume: cuéntanos y te contactamos.</p>
-      <label for="in-nombre">Tu nombre o el de tu organización *</label>
-      <input class="fld" id="in-nombre" maxlength="120" placeholder="Ej: Acopio La Candelaria">
-      <label for="in-tipo">Tipo de iniciativa *</label>
+      <h2 data-i18n="unete_t">¿Tienes una iniciativa? Únete</h2>
+      <p data-i18n="unete_p">Centros de acopio, refugios, iglesias, ONGs, empresas, tecnología o cualquier idea que sume: cuéntanos y te contactamos.</p>
+      <label for="in-nombre" data-i18n="lbl_in_nombre">Tu nombre o el de tu organización *</label>
+      <input class="fld" id="in-nombre" maxlength="120" placeholder="Ej: Acopio La Candelaria" data-i18n-ph="ph_in_nombre">
+      <label for="in-tipo" data-i18n="lbl_in_tipo">Tipo de iniciativa *</label>
       <select class="fld" id="in-tipo">
-        <option value="acopio">Centro de acopio</option>
-        <option value="refugio">Refugio</option>
-        <option value="ong_iglesia">ONG / iglesia</option>
-        <option value="empresa">Empresa</option>
-        <option value="voluntariado">Voluntariado</option>
-        <option value="tecnologia">Tecnología</option>
-        <option value="otra">Otra</option>
+        <option value="acopio" data-i18n="opt_acopio">Centro de acopio</option>
+        <option value="refugio" data-i18n="opt_refugio">Refugio</option>
+        <option value="ong_iglesia" data-i18n="opt_ong">ONG / iglesia</option>
+        <option value="empresa" data-i18n="opt_empresa">Empresa</option>
+        <option value="voluntariado" data-i18n="opt_vol">Voluntariado</option>
+        <option value="tecnologia" data-i18n="opt_tec">Tecnología</option>
+        <option value="otra" data-i18n="opt_otra">Otra</option>
       </select>
-      <label for="in-contacto">WhatsApp o correo *</label>
-      <input class="fld" id="in-contacto" maxlength="120" placeholder="Para contactarte">
-      <label for="in-desc">Cuéntanos en pocas líneas</label>
-      <textarea class="fld" id="in-desc" rows="3" maxlength="500" placeholder="Qué hacen y cómo quieren sumarse a la red"></textarea>
-      <button class="send" id="in-send">Enviar a la fundación</button>
+      <label for="in-contacto" data-i18n="lbl_in_contacto">WhatsApp o correo *</label>
+      <input class="fld" id="in-contacto" maxlength="120" placeholder="Para contactarte" data-i18n-ph="ph_in_contacto">
+      <label for="in-desc" data-i18n="lbl_in_desc">Cuéntanos en pocas líneas</label>
+      <textarea class="fld" id="in-desc" rows="3" maxlength="500" placeholder="Qué hacen y cómo quieren sumarse a la red" data-i18n-ph="ph_in_desc"></textarea>
+      <button class="send" id="in-send" data-i18n="in_send">Enviar a la fundación</button>
       <p class="fmsg" id="in-msg"></p>
     </div>
   </div>
@@ -251,11 +266,696 @@ footer b{color:var(--ink-2)}
 
 <footer>
   <div class="wrap">
-    <b>enVenezuela.app</b> · Fundación y matriz de la red de ayuda tras el sismo<br>
+    <b>enVenezuela.app</b> · <span data-i18n="foot_1">Fundación y matriz de la red de ayuda tras el sismo</span><br>
     <a href="https://hospitalesenvenezuela.com">hospitalesenvenezuela.com</a> · <a href="https://psicologosenvenezuela.com">psicologosenvenezuela.com</a> · <a href="https://empleoenvenezuela.com">empleoenvenezuela.com</a><br>
-    Iniciativa comunitaria sin fines de lucro. Hecha por voluntarios, para Venezuela.
+    <span data-i18n="foot_3">Iniciativa comunitaria sin fines de lucro. Hecha por voluntarios, para Venezuela.</span>
   </div>
 </footer>
+
+<script>
+/* ===== i18n Red enVenezuela (compartido: clave localStorage red_lang) ===== */
+/* Diccionario i18n Red enVenezuela - matriz envenezuela.app
+   9 idiomas: es (fuente de verdad), en, pt, fr, it, de, tr, zh, ar */
+const I18N = {
+es: {
+  title:"enVenezuela.app · Fundación y red de ayuda tras el sismo",
+  meta_desc:"Fundación comunitaria sin fines de lucro: encuentra a tu familiar ingresado, recibe apoyo emocional verificado y consigue trabajo o voluntariado. Todo gratis, todo web, para todos.",
+  og_title:"enVenezuela.app · La red de ayuda tras el sismo",
+  og_desc:"Una fundación, tres plataformas: hospitales, psicólogos y empleo. Datos en vivo, centro de registro presencial y comunidad.",
+  lang_aria:"Cambiar idioma",
+  nav_plat:"Plataformas", nav_vivo:"En vivo", nav_reg:"Regístrate", nav_fund:"Fundación", nav_unete:"Únete",
+  badge_f:"Fundación comunitaria · sin fines de lucro · red en vivo",
+  h1:'Una sola red de ayuda, <span class="grad">tres plataformas hermanas</span>, gratis y para todos.',
+  hero_sub:"Tras el sismo nos organizamos como comunidad: aquí encuentras a tu familiar ingresado, recibes apoyo emocional de profesionales verificados y consigues trabajo o voluntariado. Sin pagos, sin descargas, sin intermediarios: pura web, en tu teléfono o en tu computadora.",
+  cta_ver:"Ver las plataformas", cta_reg:"¿Perdiste todo? Regístrate",
+  livehead:"LA RED EN VIVO",
+  st_pac:"personas registradas", st_enc:"encontradas", st_alta:"dadas de alta",
+  st_prof:"profesionales de salud mental", st_emp:"buscando empleo", st_sol:"vacantes y peticiones",
+  lastreg_pre:"Última persona registrada en la red:",
+  rel_moment:"hace un momento", rel_min:"hace {n} min", rel_h:"hace {n} h", rel_d:"hace {n} días",
+  plat_t:"Las tres plataformas de la red",
+  plat_p:"Cada una vive en su propia dirección, con su color y su misión. Todas comparten la misma base de datos comunitaria.",
+  hosp_t:"Hospitales en Venezuela",
+  hosp_p:"Busca a tu familiar ingresado en hospitales y centros de salud, revisa el estado de cada centro y ayuda registrando datos como voluntario.",
+  hosp_go:"Buscar a mi familiar",
+  psi_t:"Psicólogos en Venezuela",
+  psi_p:"Psicólogos y psiquiatras con credencial verificable, muchos gratuitos. Test de ansiedad de 2 minutos y mural de peticiones de apoyo.",
+  psi_go:"Necesito hablar con alguien",
+  emp_t:"Empleo en Venezuela",
+  emp_p:"Tu perfil profesional gratis, como una red de trabajo comunitaria: experiencia, habilidades y disponibilidad. Empresas y refugios te contactan directo.",
+  emp_go:"Buscar trabajo o ayudar",
+  centro_t:"¿Perdiste todo, hasta tu computadora? Igual puedes postularte.",
+  centro_p1:'Si el sismo se llevó tu casa, tu trabajo y tus equipos, tus habilidades siguen intactas. Estamos preparando un <b>centro de registro presencial</b> en Las Mercedes, Caracas:',
+  centro_li1:"10 computadoras listas para crear tu perfil profesional con ayuda de voluntarios",
+  centro_li2:"Internet satelital para que el registro funcione aunque la zona no tenga conexión",
+  centro_li3:"Te acompañamos paso a paso y quedas visible para empresas, acopios y refugios",
+  centro_p2:"Déjanos tu nombre y tu WhatsApp y te avisamos apenas abramos, con la dirección exacta y los horarios.",
+  cbox_t:"📋 Avísame cuando abra el centro",
+  ph_nombre:"Tu nombre y apellido *", ph_tel:"Tu WhatsApp * Ej: 0414 1234567",
+  ph_hab:"Tus habilidades (opcional) Ej: cocina, albañilería", ph_zona:"Tu zona (opcional) Ej: Petare",
+  av_send:"Quiero que me avisen", sending:"Enviando…",
+  av_err:"Escribe tu nombre y un WhatsApp válido.",
+  av_ok:"✅ Listo, quedaste en la lista. Te escribimos por WhatsApp cuando abramos.",
+  rate:"Ya enviaste varias veces. Intenta más tarde.",
+  net_err:"No se pudo enviar. Revisa tu conexión e intenta de nuevo.",
+  aviso_s:"1 persona ya está en la lista de aviso.", aviso_p:"{n} personas ya están en la lista de aviso.",
+  rules_t:"Las reglas de la red", rules_p:"Claras y para todos. Son las que hacen que la comunidad confíe.",
+  r1_t:"Todo es gratis, siempre", r1_p:"Buscar, registrarte, publicar y contactar. Nadie te puede cobrar por usar la red.",
+  r2_t:"Nadie paga por trabajo", r2_p:"Si alguien pide dinero por conseguirte empleo o voluntarios, repórtalo con la bandera.",
+  r3_t:"Teléfonos protegidos", r3_p:"Los números se publican ocultos y solo se revelan a quien se identifica.",
+  r4_t:"Datos verificables", r4_p:"Credenciales FPV y MPPS con enlace público de verificación, y reportes comunitarios.",
+  r5_t:"Web para todos", r5_p:"Nada que descargar: funciona en cualquier teléfono o computadora, hasta con mala señal.",
+  r6_t:"Emergencias: 171", r6_p:"La red no sustituye atención médica de emergencia ni a los cuerpos de rescate.",
+  fund_sec_t:"La fundación", fund_sec_p:"enVenezuela.app es la matriz que conecta y cuida las plataformas de la red.",
+  fund_t:"Qué estamos construyendo",
+  fund_p1:'<b>Un sistema comunitario de respuesta al sismo:</b> personas ingresadas y centros de salud, apoyo emocional verificado, y una red de empleo y voluntariado para reconstruir.',
+  fund_p2:'<b>Lo que viene:</b> centros de registro presenciales con equipos e internet satelital, más profesionales verificados y nuevas verticales según lo que la comunidad necesite.',
+  fund_p3:'<b>Quiénes lo hacen:</b> voluntarios de toda Venezuela. Los datos los carga y modera la propia comunidad.',
+  fund_mini:"Transparencia: la red fue construida por voluntarios con asistencia de inteligencia artificial (Claude), lo que nos permite avanzar rápido con un equipo pequeño. Emergencias: llama al 171.",
+  unete_t:"¿Tienes una iniciativa? Únete",
+  unete_p:"Centros de acopio, refugios, iglesias, ONGs, empresas, tecnología o cualquier idea que sume: cuéntanos y te contactamos.",
+  lbl_in_nombre:"Tu nombre o el de tu organización *", ph_in_nombre:"Ej: Acopio La Candelaria",
+  lbl_in_tipo:"Tipo de iniciativa *",
+  opt_acopio:"Centro de acopio", opt_refugio:"Refugio", opt_ong:"ONG / iglesia", opt_empresa:"Empresa",
+  opt_vol:"Voluntariado", opt_tec:"Tecnología", opt_otra:"Otra",
+  lbl_in_contacto:"WhatsApp o correo *", ph_in_contacto:"Para contactarte",
+  lbl_in_desc:"Cuéntanos en pocas líneas", ph_in_desc:"Qué hacen y cómo quieren sumarse a la red",
+  in_send:"Enviar a la fundación",
+  in_err:"Completa el nombre y el contacto.",
+  in_ok:"✅ Recibido. La fundación te contactará pronto.",
+  in_neterr:"No se pudo enviar. Intenta de nuevo.",
+  foot_1:"Fundación y matriz de la red de ayuda tras el sismo",
+  foot_3:"Iniciativa comunitaria sin fines de lucro. Hecha por voluntarios, para Venezuela."
+},
+en: {
+  title:"enVenezuela.app · Foundation and help network after the earthquake",
+  meta_desc:"Non-profit community foundation: find your hospitalized loved one, get verified emotional support and find work or volunteering. All free, all web, for everyone.",
+  og_title:"enVenezuela.app · The help network after the earthquake",
+  og_desc:"One foundation, three platforms: hospitals, psychologists and jobs. Live data, an in-person registration center and community.",
+  lang_aria:"Change language",
+  nav_plat:"Platforms", nav_vivo:"Live", nav_reg:"Sign up", nav_fund:"Foundation", nav_unete:"Join us",
+  badge_f:"Community foundation · non-profit · live network",
+  h1:'One single help network, <span class="grad">three sister platforms</span>, free for everyone.',
+  hero_sub:"After the earthquake we organized as a community: here you can find your hospitalized loved one, get emotional support from verified professionals and find work or volunteering. No fees, no downloads, no middlemen: pure web, on your phone or your computer.",
+  cta_ver:"See the platforms", cta_reg:"Lost everything? Sign up",
+  livehead:"THE NETWORK, LIVE",
+  st_pac:"people registered", st_enc:"found", st_alta:"discharged",
+  st_prof:"mental health professionals", st_emp:"looking for work", st_sol:"openings and requests",
+  lastreg_pre:"Last person registered in the network:",
+  rel_moment:"a moment ago", rel_min:"{n} min ago", rel_h:"{n} h ago", rel_d:"{n} days ago",
+  plat_t:"The three platforms of the network",
+  plat_p:"Each one lives at its own address, with its own color and mission. They all share the same community database.",
+  hosp_t:"Hospitals in Venezuela",
+  hosp_p:"Search for your loved one in hospitals and health centers, check the status of each center and help by registering data as a volunteer.",
+  hosp_go:"Find my loved one",
+  psi_t:"Psychologists in Venezuela",
+  psi_p:"Psychologists and psychiatrists with verifiable credentials, many free of charge. A 2 minute anxiety test and a wall of support requests.",
+  psi_go:"I need to talk to someone",
+  emp_t:"Jobs in Venezuela",
+  emp_p:"Your professional profile, free, like a community job network: experience, skills and availability. Companies and shelters contact you directly.",
+  emp_go:"Find work or help out",
+  centro_t:"Lost everything, even your computer? You can still sign up.",
+  centro_p1:'If the earthquake took your home, your job and your equipment, your skills are still intact. We are preparing an <b>in-person registration center</b> in Las Mercedes, Caracas:',
+  centro_li1:"10 computers ready to create your professional profile with help from volunteers",
+  centro_li2:"Satellite internet so registration works even if the area has no connection",
+  centro_li3:"We walk you through it step by step and you become visible to companies, aid centers and shelters",
+  centro_p2:"Leave us your name and WhatsApp and we will let you know as soon as we open, with the exact address and hours.",
+  cbox_t:"📋 Tell me when the center opens",
+  ph_nombre:"Your full name *", ph_tel:"Your WhatsApp * E.g.: 0414 1234567",
+  ph_hab:"Your skills (optional) E.g.: cooking, masonry", ph_zona:"Your area (optional) E.g.: Petare",
+  av_send:"Notify me", sending:"Sending…",
+  av_err:"Write your name and a valid WhatsApp number.",
+  av_ok:"✅ Done, you are on the list. We will message you on WhatsApp when we open.",
+  rate:"You have sent this several times. Try again later.",
+  net_err:"Could not send. Check your connection and try again.",
+  aviso_s:"1 person is already on the notification list.", aviso_p:"{n} people are already on the notification list.",
+  rules_t:"The rules of the network", rules_p:"Clear, and the same for everyone. They are what makes the community trust.",
+  r1_t:"Everything is free, always", r1_p:"Searching, registering, posting and contacting. No one can charge you for using the network.",
+  r2_t:"No one pays for work", r2_p:"If someone asks for money to get you a job or volunteers, report it with the flag.",
+  r3_t:"Protected phone numbers", r3_p:"Numbers are published hidden and only revealed to people who identify themselves.",
+  r4_t:"Verifiable data", r4_p:"FPV and MPPS credentials with a public verification link, plus community reports.",
+  r5_t:"Web for everyone", r5_p:"Nothing to download: it works on any phone or computer, even with a poor signal.",
+  r6_t:"Emergencies: 171", r6_p:"The network does not replace emergency medical care or rescue teams.",
+  fund_sec_t:"The foundation", fund_sec_p:"enVenezuela.app is the home base that connects and takes care of the network's platforms.",
+  fund_t:"What we are building",
+  fund_p1:'<b>A community earthquake response system:</b> hospitalized people and health centers, verified emotional support, and a job and volunteering network to rebuild.',
+  fund_p2:'<b>What is coming:</b> in-person registration centers with equipment and satellite internet, more verified professionals and new verticals as the community needs them.',
+  fund_p3:'<b>Who makes it happen:</b> volunteers from all over Venezuela. The community itself loads and moderates the data.',
+  fund_mini:"Transparency: the network was built by volunteers with the assistance of artificial intelligence (Claude), which lets a small team move fast. Emergencies: call 171.",
+  unete_t:"Have an initiative? Join us",
+  unete_p:"Aid centers, shelters, churches, NGOs, companies, tech or any idea that helps: tell us and we will contact you.",
+  lbl_in_nombre:"Your name or your organization's *", ph_in_nombre:"E.g.: La Candelaria aid center",
+  lbl_in_tipo:"Type of initiative *",
+  opt_acopio:"Aid collection center", opt_refugio:"Shelter", opt_ong:"NGO / church", opt_empresa:"Company",
+  opt_vol:"Volunteering", opt_tec:"Technology", opt_otra:"Other",
+  lbl_in_contacto:"WhatsApp or email *", ph_in_contacto:"So we can reach you",
+  lbl_in_desc:"Tell us in a few lines", ph_in_desc:"What you do and how you want to join the network",
+  in_send:"Send to the foundation",
+  in_err:"Fill in the name and contact.",
+  in_ok:"✅ Received. The foundation will contact you soon.",
+  in_neterr:"Could not send. Try again.",
+  foot_1:"Foundation and home base of the help network after the earthquake",
+  foot_3:"Non-profit community initiative. Made by volunteers, for Venezuela."
+},
+pt: {
+  title:"enVenezuela.app · Fundação e rede de ajuda após o terremoto",
+  meta_desc:"Fundação comunitária sem fins lucrativos: encontre seu familiar internado, receba apoio emocional verificado e consiga trabalho ou voluntariado. Tudo grátis, tudo web, para todos.",
+  og_title:"enVenezuela.app · A rede de ajuda após o terremoto",
+  og_desc:"Uma fundação, três plataformas: hospitais, psicólogos e emprego. Dados ao vivo, centro de registro presencial e comunidade.",
+  lang_aria:"Mudar idioma",
+  nav_plat:"Plataformas", nav_vivo:"Ao vivo", nav_reg:"Cadastre-se", nav_fund:"Fundação", nav_unete:"Participe",
+  badge_f:"Fundação comunitária · sem fins lucrativos · rede ao vivo",
+  h1:'Uma só rede de ajuda, <span class="grad">três plataformas irmãs</span>, grátis e para todos.',
+  hero_sub:"Depois do terremoto nos organizamos como comunidade: aqui você encontra seu familiar internado, recebe apoio emocional de profissionais verificados e consegue trabalho ou voluntariado. Sem pagamentos, sem downloads, sem intermediários: só web, no seu celular ou computador.",
+  cta_ver:"Ver as plataformas", cta_reg:"Perdeu tudo? Cadastre-se",
+  livehead:"A REDE AO VIVO",
+  st_pac:"pessoas registradas", st_enc:"encontradas", st_alta:"com alta médica",
+  st_prof:"profissionais de saúde mental", st_emp:"buscando emprego", st_sol:"vagas e pedidos",
+  lastreg_pre:"Última pessoa registrada na rede:",
+  rel_moment:"há um momento", rel_min:"há {n} min", rel_h:"há {n} h", rel_d:"há {n} dias",
+  plat_t:"As três plataformas da rede",
+  plat_p:"Cada uma vive no seu próprio endereço, com sua cor e sua missão. Todas compartilham a mesma base de dados comunitária.",
+  hosp_t:"Hospitais na Venezuela",
+  hosp_p:"Procure seu familiar internado em hospitais e centros de saúde, veja a situação de cada centro e ajude registrando dados como voluntário.",
+  hosp_go:"Procurar meu familiar",
+  psi_t:"Psicólogos na Venezuela",
+  psi_p:"Psicólogos e psiquiatras com credencial verificável, muitos gratuitos. Teste de ansiedade de 2 minutos e mural de pedidos de apoio.",
+  psi_go:"Preciso falar com alguém",
+  emp_t:"Emprego na Venezuela",
+  emp_p:"Seu perfil profissional grátis, como uma rede de trabalho comunitária: experiência, habilidades e disponibilidade. Empresas e abrigos entram em contato direto.",
+  emp_go:"Buscar trabalho ou ajudar",
+  centro_t:"Perdeu tudo, até o computador? Mesmo assim você pode se cadastrar.",
+  centro_p1:'Se o terremoto levou sua casa, seu trabalho e seus equipamentos, suas habilidades continuam intactas. Estamos preparando um <b>centro de registro presencial</b> em Las Mercedes, Caracas:',
+  centro_li1:"10 computadores prontos para criar seu perfil profissional com ajuda de voluntários",
+  centro_li2:"Internet via satélite para o registro funcionar mesmo sem conexão na região",
+  centro_li3:"Acompanhamos você passo a passo e seu perfil fica visível para empresas, centros de doação e abrigos",
+  centro_p2:"Deixe seu nome e seu WhatsApp e avisamos assim que abrirmos, com o endereço exato e os horários.",
+  cbox_t:"📋 Me avise quando o centro abrir",
+  ph_nombre:"Seu nome completo *", ph_tel:"Seu WhatsApp * Ex.: 0414 1234567",
+  ph_hab:"Suas habilidades (opcional) Ex.: cozinha, alvenaria", ph_zona:"Sua região (opcional) Ex.: Petare",
+  av_send:"Quero ser avisado", sending:"Enviando…",
+  av_err:"Escreva seu nome e um WhatsApp válido.",
+  av_ok:"✅ Pronto, você está na lista. Escrevemos no WhatsApp quando abrirmos.",
+  rate:"Você já enviou várias vezes. Tente mais tarde.",
+  net_err:"Não foi possível enviar. Verifique sua conexão e tente de novo.",
+  aviso_s:"1 pessoa já está na lista de aviso.", aviso_p:"{n} pessoas já estão na lista de aviso.",
+  rules_t:"As regras da rede", rules_p:"Claras e para todos. São elas que fazem a comunidade confiar.",
+  r1_t:"Tudo é grátis, sempre", r1_p:"Buscar, cadastrar-se, publicar e contatar. Ninguém pode cobrar pelo uso da rede.",
+  r2_t:"Ninguém paga por trabalho", r2_p:"Se alguém pedir dinheiro para conseguir emprego ou voluntários, denuncie com a bandeira.",
+  r3_t:"Telefones protegidos", r3_p:"Os números são publicados ocultos e só são revelados a quem se identifica.",
+  r4_t:"Dados verificáveis", r4_p:"Credenciais FPV e MPPS com link público de verificação, e denúncias comunitárias.",
+  r5_t:"Web para todos", r5_p:"Nada para baixar: funciona em qualquer celular ou computador, mesmo com sinal ruim.",
+  r6_t:"Emergências: 171", r6_p:"A rede não substitui atendimento médico de emergência nem as equipes de resgate.",
+  fund_sec_t:"A fundação", fund_sec_p:"enVenezuela.app é a matriz que conecta e cuida das plataformas da rede.",
+  fund_t:"O que estamos construindo",
+  fund_p1:'<b>Um sistema comunitário de resposta ao terremoto:</b> pessoas internadas e centros de saúde, apoio emocional verificado, e uma rede de emprego e voluntariado para reconstruir.',
+  fund_p2:'<b>O que vem por aí:</b> centros de registro presenciais com equipamentos e internet via satélite, mais profissionais verificados e novas frentes conforme a comunidade precisar.',
+  fund_p3:'<b>Quem faz:</b> voluntários de toda a Venezuela. Os dados são carregados e moderados pela própria comunidade.',
+  fund_mini:"Transparência: a rede foi construída por voluntários com assistência de inteligência artificial (Claude), o que permite avançar rápido com uma equipe pequena. Emergências: ligue 171.",
+  unete_t:"Tem uma iniciativa? Participe",
+  unete_p:"Centros de doação, abrigos, igrejas, ONGs, empresas, tecnologia ou qualquer ideia que some: conte para a gente e entramos em contato.",
+  lbl_in_nombre:"Seu nome ou o da sua organização *", ph_in_nombre:"Ex.: Centro de doações La Candelaria",
+  lbl_in_tipo:"Tipo de iniciativa *",
+  opt_acopio:"Centro de doações", opt_refugio:"Abrigo", opt_ong:"ONG / igreja", opt_empresa:"Empresa",
+  opt_vol:"Voluntariado", opt_tec:"Tecnologia", opt_otra:"Outra",
+  lbl_in_contacto:"WhatsApp ou e-mail *", ph_in_contacto:"Para falarmos com você",
+  lbl_in_desc:"Conte em poucas linhas", ph_in_desc:"O que vocês fazem e como querem se somar à rede",
+  in_send:"Enviar à fundação",
+  in_err:"Preencha o nome e o contato.",
+  in_ok:"✅ Recebido. A fundação vai entrar em contato em breve.",
+  in_neterr:"Não foi possível enviar. Tente de novo.",
+  foot_1:"Fundação e matriz da rede de ajuda após o terremoto",
+  foot_3:"Iniciativa comunitária sem fins lucrativos. Feita por voluntários, para a Venezuela."
+},
+fr: {
+  title:"enVenezuela.app · Fondation et réseau d'entraide après le séisme",
+  meta_desc:"Fondation communautaire à but non lucratif : retrouvez votre proche hospitalisé, recevez un soutien émotionnel vérifié et trouvez un emploi ou du bénévolat. Tout est gratuit, tout est web, pour tous.",
+  og_title:"enVenezuela.app · Le réseau d'entraide après le séisme",
+  og_desc:"Une fondation, trois plateformes : hôpitaux, psychologues et emploi. Données en direct, centre d'inscription sur place et communauté.",
+  lang_aria:"Changer de langue",
+  nav_plat:"Plateformes", nav_vivo:"En direct", nav_reg:"Inscription", nav_fund:"Fondation", nav_unete:"Rejoignez-nous",
+  badge_f:"Fondation communautaire · à but non lucratif · réseau en direct",
+  h1:'Un seul réseau d\'entraide, <span class="grad">trois plateformes sœurs</span>, gratuit et pour tous.',
+  hero_sub:"Après le séisme, nous nous sommes organisés en communauté : ici vous retrouvez votre proche hospitalisé, recevez le soutien de professionnels vérifiés et trouvez un emploi ou du bénévolat. Sans frais, sans téléchargement, sans intermédiaires : du web pur, sur votre téléphone ou votre ordinateur.",
+  cta_ver:"Voir les plateformes", cta_reg:"Tout perdu ? Inscrivez-vous",
+  livehead:"LE RÉSEAU EN DIRECT",
+  st_pac:"personnes enregistrées", st_enc:"retrouvées", st_alta:"sorties de l'hôpital",
+  st_prof:"professionnels de santé mentale", st_emp:"en recherche d'emploi", st_sol:"offres et demandes",
+  lastreg_pre:"Dernière personne enregistrée sur le réseau :",
+  rel_moment:"il y a un instant", rel_min:"il y a {n} min", rel_h:"il y a {n} h", rel_d:"il y a {n} jours",
+  plat_t:"Les trois plateformes du réseau",
+  plat_p:"Chacune vit à sa propre adresse, avec sa couleur et sa mission. Toutes partagent la même base de données communautaire.",
+  hosp_t:"Hôpitaux au Venezuela",
+  hosp_p:"Cherchez votre proche admis dans les hôpitaux et centres de santé, consultez l'état de chaque centre et aidez en enregistrant des données comme bénévole.",
+  hosp_go:"Retrouver mon proche",
+  psi_t:"Psychologues au Venezuela",
+  psi_p:"Psychologues et psychiatres aux diplômes vérifiables, souvent gratuits. Test d'anxiété de 2 minutes et mur de demandes de soutien.",
+  psi_go:"J'ai besoin de parler à quelqu'un",
+  emp_t:"Emploi au Venezuela",
+  emp_p:"Votre profil professionnel gratuit, comme un réseau d'emploi communautaire : expérience, compétences et disponibilités. Entreprises et refuges vous contactent directement.",
+  emp_go:"Chercher un emploi ou aider",
+  centro_t:"Tout perdu, même votre ordinateur ? Vous pouvez quand même vous inscrire.",
+  centro_p1:'Si le séisme a emporté votre maison, votre travail et votre matériel, vos compétences restent intactes. Nous préparons un <b>centre d\'inscription sur place</b> à Las Mercedes, Caracas :',
+  centro_li1:"10 ordinateurs prêts pour créer votre profil professionnel avec l'aide de bénévoles",
+  centro_li2:"Internet par satellite pour que l'inscription fonctionne même sans connexion dans la zone",
+  centro_li3:"Nous vous accompagnons pas à pas et vous devenez visible pour les entreprises, centres d'aide et refuges",
+  centro_p2:"Laissez-nous votre nom et votre WhatsApp et nous vous prévenons dès l'ouverture, avec l'adresse exacte et les horaires.",
+  cbox_t:"📋 Prévenez-moi à l'ouverture du centre",
+  ph_nombre:"Votre nom complet *", ph_tel:"Votre WhatsApp * Ex. : 0414 1234567",
+  ph_hab:"Vos compétences (facultatif) Ex. : cuisine, maçonnerie", ph_zona:"Votre quartier (facultatif) Ex. : Petare",
+  av_send:"Prévenez-moi", sending:"Envoi…",
+  av_err:"Écrivez votre nom et un numéro WhatsApp valide.",
+  av_ok:"✅ C'est noté, vous êtes sur la liste. Nous vous écrirons sur WhatsApp à l'ouverture.",
+  rate:"Vous avez déjà envoyé plusieurs fois. Réessayez plus tard.",
+  net_err:"Envoi impossible. Vérifiez votre connexion et réessayez.",
+  aviso_s:"1 personne est déjà sur la liste.", aviso_p:"{n} personnes sont déjà sur la liste.",
+  rules_t:"Les règles du réseau", rules_p:"Claires et pour tous. Ce sont elles qui créent la confiance de la communauté.",
+  r1_t:"Tout est gratuit, toujours", r1_p:"Chercher, s'inscrire, publier et contacter. Personne ne peut vous faire payer l'usage du réseau.",
+  r2_t:"Personne ne paie pour travailler", r2_p:"Si quelqu'un demande de l'argent pour vous trouver un emploi ou des bénévoles, signalez-le avec le drapeau.",
+  r3_t:"Téléphones protégés", r3_p:"Les numéros sont publiés masqués et ne sont révélés qu'à ceux qui s'identifient.",
+  r4_t:"Données vérifiables", r4_p:"Diplômes FPV et MPPS avec lien public de vérification, et signalements communautaires.",
+  r5_t:"Le web pour tous", r5_p:"Rien à télécharger : fonctionne sur tout téléphone ou ordinateur, même avec un mauvais signal.",
+  r6_t:"Urgences : 171", r6_p:"Le réseau ne remplace ni les soins médicaux d'urgence ni les équipes de secours.",
+  fund_sec_t:"La fondation", fund_sec_p:"enVenezuela.app est la base qui connecte et protège les plateformes du réseau.",
+  fund_t:"Ce que nous construisons",
+  fund_p1:'<b>Un système communautaire de réponse au séisme :</b> personnes hospitalisées et centres de santé, soutien émotionnel vérifié, et un réseau d\'emploi et de bénévolat pour reconstruire.',
+  fund_p2:'<b>Ce qui arrive :</b> des centres d\'inscription sur place avec du matériel et internet par satellite, plus de professionnels vérifiés et de nouveaux services selon les besoins de la communauté.',
+  fund_p3:'<b>Qui le fait :</b> des bénévoles de tout le Venezuela. La communauté elle-même charge et modère les données.',
+  fund_mini:"Transparence : le réseau a été construit par des bénévoles avec l'assistance d'une intelligence artificielle (Claude), ce qui permet à une petite équipe d'avancer vite. Urgences : appelez le 171.",
+  unete_t:"Vous avez une initiative ? Rejoignez-nous",
+  unete_p:"Centres d'aide, refuges, églises, ONG, entreprises, technologie ou toute idée utile : racontez-nous et nous vous contactons.",
+  lbl_in_nombre:"Votre nom ou celui de votre organisation *", ph_in_nombre:"Ex. : Centre d'aide La Candelaria",
+  lbl_in_tipo:"Type d'initiative *",
+  opt_acopio:"Centre de collecte", opt_refugio:"Refuge", opt_ong:"ONG / église", opt_empresa:"Entreprise",
+  opt_vol:"Bénévolat", opt_tec:"Technologie", opt_otra:"Autre",
+  lbl_in_contacto:"WhatsApp ou e-mail *", ph_in_contacto:"Pour vous contacter",
+  lbl_in_desc:"Racontez-nous en quelques lignes", ph_in_desc:"Ce que vous faites et comment vous voulez rejoindre le réseau",
+  in_send:"Envoyer à la fondation",
+  in_err:"Remplissez le nom et le contact.",
+  in_ok:"✅ Bien reçu. La fondation vous contactera bientôt.",
+  in_neterr:"Envoi impossible. Réessayez.",
+  foot_1:"Fondation et base du réseau d'entraide après le séisme",
+  foot_3:"Initiative communautaire à but non lucratif. Faite par des bénévoles, pour le Venezuela."
+},
+it: {
+  title:"enVenezuela.app · Fondazione e rete di aiuto dopo il terremoto",
+  meta_desc:"Fondazione comunitaria senza scopo di lucro: trova il tuo familiare ricoverato, ricevi supporto emotivo verificato e trova lavoro o volontariato. Tutto gratis, tutto web, per tutti.",
+  og_title:"enVenezuela.app · La rete di aiuto dopo il terremoto",
+  og_desc:"Una fondazione, tre piattaforme: ospedali, psicologi e lavoro. Dati in diretta, centro di registrazione in presenza e comunità.",
+  lang_aria:"Cambia lingua",
+  nav_plat:"Piattaforme", nav_vivo:"In diretta", nav_reg:"Registrati", nav_fund:"Fondazione", nav_unete:"Unisciti",
+  badge_f:"Fondazione comunitaria · senza scopo di lucro · rete in diretta",
+  h1:'Una sola rete di aiuto, <span class="grad">tre piattaforme sorelle</span>, gratis e per tutti.',
+  hero_sub:"Dopo il terremoto ci siamo organizzati come comunità: qui trovi il tuo familiare ricoverato, ricevi supporto emotivo da professionisti verificati e trovi lavoro o volontariato. Senza costi, senza download, senza intermediari: solo web, sul tuo telefono o computer.",
+  cta_ver:"Vedi le piattaforme", cta_reg:"Hai perso tutto? Registrati",
+  livehead:"LA RETE IN DIRETTA",
+  st_pac:"persone registrate", st_enc:"ritrovate", st_alta:"dimesse",
+  st_prof:"professionisti della salute mentale", st_emp:"in cerca di lavoro", st_sol:"offerte e richieste",
+  lastreg_pre:"Ultima persona registrata nella rete:",
+  rel_moment:"un momento fa", rel_min:"{n} min fa", rel_h:"{n} h fa", rel_d:"{n} giorni fa",
+  plat_t:"Le tre piattaforme della rete",
+  plat_p:"Ognuna vive al proprio indirizzo, con il suo colore e la sua missione. Tutte condividono lo stesso database comunitario.",
+  hosp_t:"Ospedali in Venezuela",
+  hosp_p:"Cerca il tuo familiare ricoverato in ospedali e centri sanitari, controlla lo stato di ogni centro e aiuta registrando dati come volontario.",
+  hosp_go:"Cercare il mio familiare",
+  psi_t:"Psicologi in Venezuela",
+  psi_p:"Psicologi e psichiatri con credenziali verificabili, molti gratuiti. Test dell'ansia di 2 minuti e bacheca di richieste di supporto.",
+  psi_go:"Ho bisogno di parlare con qualcuno",
+  emp_t:"Lavoro in Venezuela",
+  emp_p:"Il tuo profilo professionale gratis, come una rete di lavoro comunitaria: esperienza, competenze e disponibilità. Aziende e rifugi ti contattano direttamente.",
+  emp_go:"Cercare lavoro o aiutare",
+  centro_t:"Hai perso tutto, anche il computer? Puoi registrarti lo stesso.",
+  centro_p1:'Se il terremoto si è portato via la tua casa, il tuo lavoro e le tue attrezzature, le tue competenze restano intatte. Stiamo preparando un <b>centro di registrazione in presenza</b> a Las Mercedes, Caracas:',
+  centro_li1:"10 computer pronti per creare il tuo profilo professionale con l'aiuto di volontari",
+  centro_li2:"Internet satellitare perché la registrazione funzioni anche se la zona è senza connessione",
+  centro_li3:"Ti accompagniamo passo dopo passo e diventi visibile per aziende, centri di raccolta e rifugi",
+  centro_p2:"Lasciaci il tuo nome e il tuo WhatsApp e ti avvisiamo appena apriamo, con l'indirizzo esatto e gli orari.",
+  cbox_t:"📋 Avvisami quando apre il centro",
+  ph_nombre:"Nome e cognome *", ph_tel:"Il tuo WhatsApp * Es.: 0414 1234567",
+  ph_hab:"Le tue competenze (facoltativo) Es.: cucina, muratura", ph_zona:"La tua zona (facoltativo) Es.: Petare",
+  av_send:"Avvisatemi", sending:"Invio…",
+  av_err:"Scrivi il tuo nome e un WhatsApp valido.",
+  av_ok:"✅ Fatto, sei in lista. Ti scriveremo su WhatsApp quando apriamo.",
+  rate:"Hai già inviato più volte. Riprova più tardi.",
+  net_err:"Invio non riuscito. Controlla la connessione e riprova.",
+  aviso_s:"1 persona è già nella lista.", aviso_p:"{n} persone sono già nella lista.",
+  rules_t:"Le regole della rete", rules_p:"Chiare e per tutti. Sono quelle che fanno fidare la comunità.",
+  r1_t:"Tutto è gratis, sempre", r1_p:"Cercare, registrarsi, pubblicare e contattare. Nessuno può farti pagare per usare la rete.",
+  r2_t:"Nessuno paga per lavorare", r2_p:"Se qualcuno chiede soldi per trovarti lavoro o volontari, segnalalo con la bandierina.",
+  r3_t:"Telefoni protetti", r3_p:"I numeri sono pubblicati nascosti e rivelati solo a chi si identifica.",
+  r4_t:"Dati verificabili", r4_p:"Credenziali FPV e MPPS con link pubblico di verifica, e segnalazioni della comunità.",
+  r5_t:"Web per tutti", r5_p:"Niente da scaricare: funziona su qualsiasi telefono o computer, anche con segnale debole.",
+  r6_t:"Emergenze: 171", r6_p:"La rete non sostituisce l'assistenza medica di emergenza né le squadre di soccorso.",
+  fund_sec_t:"La fondazione", fund_sec_p:"enVenezuela.app è la base che collega e protegge le piattaforme della rete.",
+  fund_t:"Cosa stiamo costruendo",
+  fund_p1:'<b>Un sistema comunitario di risposta al terremoto:</b> persone ricoverate e centri sanitari, supporto emotivo verificato, e una rete di lavoro e volontariato per ricostruire.',
+  fund_p2:'<b>Cosa arriva:</b> centri di registrazione in presenza con attrezzature e internet satellitare, più professionisti verificati e nuovi servizi secondo i bisogni della comunità.',
+  fund_p3:'<b>Chi lo fa:</b> volontari da tutto il Venezuela. I dati li carica e li modera la comunità stessa.',
+  fund_mini:"Trasparenza: la rete è stata costruita da volontari con l'assistenza di un'intelligenza artificiale (Claude), che permette a un piccolo team di andare veloce. Emergenze: chiama il 171.",
+  unete_t:"Hai un'iniziativa? Unisciti",
+  unete_p:"Centri di raccolta, rifugi, chiese, ONG, aziende, tecnologia o qualsiasi idea utile: raccontacelo e ti contattiamo.",
+  lbl_in_nombre:"Il tuo nome o quello della tua organizzazione *", ph_in_nombre:"Es.: Centro raccolta La Candelaria",
+  lbl_in_tipo:"Tipo di iniziativa *",
+  opt_acopio:"Centro di raccolta", opt_refugio:"Rifugio", opt_ong:"ONG / chiesa", opt_empresa:"Azienda",
+  opt_vol:"Volontariato", opt_tec:"Tecnologia", opt_otra:"Altro",
+  lbl_in_contacto:"WhatsApp o e-mail *", ph_in_contacto:"Per contattarti",
+  lbl_in_desc:"Raccontacelo in poche righe", ph_in_desc:"Cosa fate e come volete unirvi alla rete",
+  in_send:"Invia alla fondazione",
+  in_err:"Completa il nome e il contatto.",
+  in_ok:"✅ Ricevuto. La fondazione ti contatterà presto.",
+  in_neterr:"Invio non riuscito. Riprova.",
+  foot_1:"Fondazione e base della rete di aiuto dopo il terremoto",
+  foot_3:"Iniziativa comunitaria senza scopo di lucro. Fatta da volontari, per il Venezuela."
+},
+de: {
+  title:"enVenezuela.app · Stiftung und Hilfsnetzwerk nach dem Erdbeben",
+  meta_desc:"Gemeinnützige Community-Stiftung: Finden Sie Ihre eingelieferten Angehörigen, erhalten Sie geprüfte emotionale Unterstützung und finden Sie Arbeit oder Freiwilligenarbeit. Alles kostenlos, alles im Web, für alle.",
+  og_title:"enVenezuela.app · Das Hilfsnetzwerk nach dem Erdbeben",
+  og_desc:"Eine Stiftung, drei Plattformen: Krankenhäuser, Psychologen und Arbeit. Live-Daten, Anmeldezentrum vor Ort und Community.",
+  lang_aria:"Sprache ändern",
+  nav_plat:"Plattformen", nav_vivo:"Live", nav_reg:"Anmelden", nav_fund:"Stiftung", nav_unete:"Mitmachen",
+  badge_f:"Community-Stiftung · gemeinnützig · Live-Netzwerk",
+  h1:'Ein einziges Hilfsnetzwerk, <span class="grad">drei Schwesterplattformen</span>, kostenlos und für alle.',
+  hero_sub:"Nach dem Erdbeben haben wir uns als Gemeinschaft organisiert: Hier finden Sie Ihre eingelieferten Angehörigen, erhalten Unterstützung von geprüften Fachkräften und finden Arbeit oder Freiwilligenarbeit. Ohne Kosten, ohne Downloads, ohne Zwischenhändler: reines Web, auf Ihrem Handy oder Computer.",
+  cta_ver:"Plattformen ansehen", cta_reg:"Alles verloren? Anmelden",
+  livehead:"DAS NETZWERK LIVE",
+  st_pac:"registrierte Personen", st_enc:"gefunden", st_alta:"entlassen",
+  st_prof:"Fachkräfte für psychische Gesundheit", st_emp:"auf Arbeitssuche", st_sol:"Stellen und Gesuche",
+  lastreg_pre:"Zuletzt registrierte Person im Netzwerk:",
+  rel_moment:"vor einem Moment", rel_min:"vor {n} Min.", rel_h:"vor {n} Std.", rel_d:"vor {n} Tagen",
+  plat_t:"Die drei Plattformen des Netzwerks",
+  plat_p:"Jede lebt unter ihrer eigenen Adresse, mit eigener Farbe und Mission. Alle teilen dieselbe Community-Datenbank.",
+  hosp_t:"Krankenhäuser in Venezuela",
+  hosp_p:"Suchen Sie Ihre Angehörigen in Krankenhäusern und Gesundheitszentren, prüfen Sie den Status jedes Zentrums und helfen Sie als Freiwilliger beim Erfassen von Daten.",
+  hosp_go:"Angehörige finden",
+  psi_t:"Psychologen in Venezuela",
+  psi_p:"Psychologen und Psychiater mit überprüfbaren Nachweisen, viele kostenlos. 2-Minuten-Angsttest und Pinnwand mit Unterstützungsanfragen.",
+  psi_go:"Ich möchte mit jemandem sprechen",
+  emp_t:"Arbeit in Venezuela",
+  emp_p:"Ihr Profil kostenlos, wie ein gemeinschaftliches Jobnetzwerk: Erfahrung, Fähigkeiten und Verfügbarkeit. Firmen und Unterkünfte kontaktieren Sie direkt.",
+  emp_go:"Arbeit suchen oder helfen",
+  centro_t:"Alles verloren, sogar den Computer? Sie können sich trotzdem anmelden.",
+  centro_p1:'Wenn das Erdbeben Ihr Zuhause, Ihre Arbeit und Ihre Geräte genommen hat, sind Ihre Fähigkeiten noch da. Wir bereiten ein <b>Anmeldezentrum vor Ort</b> in Las Mercedes, Caracas, vor:',
+  centro_li1:"10 Computer, bereit für Ihr Profil, mit Hilfe von Freiwilligen",
+  centro_li2:"Satelliteninternet, damit die Anmeldung auch ohne Verbindung in der Gegend funktioniert",
+  centro_li3:"Wir begleiten Sie Schritt für Schritt und Sie werden für Firmen, Sammelstellen und Unterkünfte sichtbar",
+  centro_p2:"Hinterlassen Sie Namen und WhatsApp und wir melden uns zur Eröffnung, mit genauer Adresse und Zeiten.",
+  cbox_t:"📋 Benachrichtigt mich zur Eröffnung",
+  ph_nombre:"Ihr vollständiger Name *", ph_tel:"Ihr WhatsApp * z.B.: 0414 1234567",
+  ph_hab:"Ihre Fähigkeiten (optional) z.B.: Kochen, Maurerarbeit", ph_zona:"Ihre Gegend (optional) z.B.: Petare",
+  av_send:"Benachrichtigt mich", sending:"Senden…",
+  av_err:"Schreiben Sie Ihren Namen und eine gültige WhatsApp-Nummer.",
+  av_ok:"✅ Fertig, Sie stehen auf der Liste. Wir schreiben Ihnen bei WhatsApp zur Eröffnung.",
+  rate:"Sie haben schon mehrmals gesendet. Versuchen Sie es später.",
+  net_err:"Senden fehlgeschlagen. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.",
+  aviso_s:"1 Person steht schon auf der Liste.", aviso_p:"{n} Personen stehen schon auf der Liste.",
+  rules_t:"Die Regeln des Netzwerks", rules_p:"Klar und für alle. Sie schaffen das Vertrauen der Gemeinschaft.",
+  r1_t:"Alles ist kostenlos, immer", r1_p:"Suchen, anmelden, veröffentlichen und kontaktieren. Niemand darf Geld für die Nutzung verlangen.",
+  r2_t:"Niemand zahlt für Arbeit", r2_p:"Wenn jemand Geld für Jobs oder Freiwillige verlangt, melden Sie es mit der Flagge.",
+  r3_t:"Geschützte Telefonnummern", r3_p:"Nummern werden verdeckt veröffentlicht und nur dem gezeigt, der sich ausweist.",
+  r4_t:"Überprüfbare Daten", r4_p:"FPV- und MPPS-Nachweise mit öffentlichem Prüflink, plus Community-Meldungen.",
+  r5_t:"Web für alle", r5_p:"Nichts herunterladen: funktioniert auf jedem Handy oder Computer, auch bei schwachem Signal.",
+  r6_t:"Notfälle: 171", r6_p:"Das Netzwerk ersetzt weder medizinische Notversorgung noch Rettungsteams.",
+  fund_sec_t:"Die Stiftung", fund_sec_p:"enVenezuela.app ist die Zentrale, die die Plattformen des Netzwerks verbindet und pflegt.",
+  fund_t:"Was wir aufbauen",
+  fund_p1:'<b>Ein gemeinschaftliches Erdbeben-Hilfesystem:</b> eingelieferte Personen und Gesundheitszentren, geprüfte emotionale Unterstützung und ein Job- und Freiwilligennetzwerk zum Wiederaufbau.',
+  fund_p2:'<b>Was kommt:</b> Anmeldezentren vor Ort mit Geräten und Satelliteninternet, mehr geprüfte Fachkräfte und neue Bereiche, je nachdem, was die Gemeinschaft braucht.',
+  fund_p3:'<b>Wer es macht:</b> Freiwillige aus ganz Venezuela. Die Daten lädt und moderiert die Gemeinschaft selbst.',
+  fund_mini:"Transparenz: Das Netzwerk wurde von Freiwilligen mit Unterstützung künstlicher Intelligenz (Claude) gebaut, so kommt ein kleines Team schnell voran. Notfälle: Rufen Sie die 171 an.",
+  unete_t:"Haben Sie eine Initiative? Machen Sie mit",
+  unete_p:"Sammelstellen, Unterkünfte, Kirchen, NGOs, Firmen, Technologie oder jede gute Idee: Erzählen Sie uns davon und wir melden uns.",
+  lbl_in_nombre:"Ihr Name oder der Ihrer Organisation *", ph_in_nombre:"z.B.: Sammelstelle La Candelaria",
+  lbl_in_tipo:"Art der Initiative *",
+  opt_acopio:"Sammelstelle", opt_refugio:"Unterkunft", opt_ong:"NGO / Kirche", opt_empresa:"Firma",
+  opt_vol:"Freiwilligenarbeit", opt_tec:"Technologie", opt_otra:"Andere",
+  lbl_in_contacto:"WhatsApp oder E-Mail *", ph_in_contacto:"Damit wir Sie erreichen",
+  lbl_in_desc:"Erzählen Sie es in wenigen Zeilen", ph_in_desc:"Was Sie tun und wie Sie mitmachen möchten",
+  in_send:"An die Stiftung senden",
+  in_err:"Füllen Sie Name und Kontakt aus.",
+  in_ok:"✅ Erhalten. Die Stiftung meldet sich bald.",
+  in_neterr:"Senden fehlgeschlagen. Versuchen Sie es erneut.",
+  foot_1:"Stiftung und Zentrale des Hilfsnetzwerks nach dem Erdbeben",
+  foot_3:"Gemeinnützige Community-Initiative. Von Freiwilligen gemacht, für Venezuela."
+},
+tr: {
+  title:"enVenezuela.app · Depremden sonra vakıf ve yardım ağı",
+  meta_desc:"Kâr amacı gütmeyen topluluk vakfı: hastanedeki yakınınızı bulun, doğrulanmış duygusal destek alın ve iş veya gönüllülük bulun. Hepsi ücretsiz, hepsi web üzerinde, herkes için.",
+  og_title:"enVenezuela.app · Depremden sonra yardım ağı",
+  og_desc:"Bir vakıf, üç platform: hastaneler, psikologlar ve iş. Canlı veriler, yüz yüze kayıt merkezi ve topluluk.",
+  lang_aria:"Dili değiştir",
+  nav_plat:"Platformlar", nav_vivo:"Canlı", nav_reg:"Kayıt ol", nav_fund:"Vakıf", nav_unete:"Katıl",
+  badge_f:"Topluluk vakfı · kâr amacı gütmez · canlı ağ",
+  h1:'Tek bir yardım ağı, <span class="grad">üç kardeş platform</span>, ücretsiz ve herkes için.',
+  hero_sub:"Depremden sonra topluluk olarak örgütlendik: burada hastanedeki yakınınızı bulur, doğrulanmış uzmanlardan duygusal destek alır ve iş veya gönüllülük bulursunuz. Ücret yok, indirme yok, aracı yok: sadece web, telefonunuzda veya bilgisayarınızda.",
+  cta_ver:"Platformları gör", cta_reg:"Her şeyini mi kaybettin? Kayıt ol",
+  livehead:"AĞ CANLI YAYINDA",
+  st_pac:"kayıtlı kişi", st_enc:"bulunan", st_alta:"taburcu edilen",
+  st_prof:"ruh sağlığı uzmanı", st_emp:"iş arayan", st_sol:"ilan ve talep",
+  lastreg_pre:"Ağa kaydedilen son kişi:",
+  rel_moment:"az önce", rel_min:"{n} dk önce", rel_h:"{n} sa önce", rel_d:"{n} gün önce",
+  plat_t:"Ağın üç platformu",
+  plat_p:"Her biri kendi adresinde, kendi rengi ve göreviyle yaşar. Hepsi aynı topluluk veritabanını paylaşır.",
+  hosp_t:"Venezuela'daki Hastaneler",
+  hosp_p:"Yakınınızı hastanelerde ve sağlık merkezlerinde arayın, her merkezin durumunu kontrol edin ve gönüllü olarak veri girerek yardım edin.",
+  hosp_go:"Yakınımı bul",
+  psi_t:"Venezuela'daki Psikologlar",
+  psi_p:"Doğrulanabilir belgeli psikolog ve psikiyatristler, birçoğu ücretsiz. 2 dakikalık kaygı testi ve destek talepleri panosu.",
+  psi_go:"Biriyle konuşmam gerekiyor",
+  emp_t:"Venezuela'da İş",
+  emp_p:"Ücretsiz profesyonel profiliniz, topluluk temelli bir iş ağı gibi: deneyim, beceriler ve uygunluk. Şirketler ve barınaklar sizinle doğrudan iletişime geçer.",
+  emp_go:"İş ara veya yardım et",
+  centro_t:"Her şeyini, bilgisayarını bile mi kaybettin? Yine de kayıt olabilirsin.",
+  centro_p1:'Deprem evinizi, işinizi ve eşyalarınızı götürdüyse de becerileriniz yerinde duruyor. Las Mercedes, Caracas\'ta bir <b>yüz yüze kayıt merkezi</b> hazırlıyoruz:',
+  centro_li1:"Gönüllülerin yardımıyla profesyonel profilinizi oluşturmak için hazır 10 bilgisayar",
+  centro_li2:"Bölgede bağlantı olmasa bile kaydın çalışması için uydu interneti",
+  centro_li3:"Adım adım size eşlik ediyoruz; şirketler, yardım merkezleri ve barınaklar sizi görebiliyor",
+  centro_p2:"Adınızı ve WhatsApp numaranızı bırakın, açılır açılmaz tam adres ve saatlerle haber veririz.",
+  cbox_t:"📋 Merkez açılınca haber ver",
+  ph_nombre:"Adınız ve soyadınız *", ph_tel:"WhatsApp numaranız * Örn: 0414 1234567",
+  ph_hab:"Becerileriniz (isteğe bağlı) Örn: aşçılık, duvarcılık", ph_zona:"Bölgeniz (isteğe bağlı) Örn: Petare",
+  av_send:"Bana haber verin", sending:"Gönderiliyor…",
+  av_err:"Adınızı ve geçerli bir WhatsApp numarası yazın.",
+  av_ok:"✅ Tamam, listedesiniz. Açıldığında WhatsApp'tan yazacağız.",
+  rate:"Zaten birkaç kez gönderdiniz. Daha sonra deneyin.",
+  net_err:"Gönderilemedi. Bağlantınızı kontrol edip tekrar deneyin.",
+  aviso_s:"1 kişi zaten haber listesinde.", aviso_p:"{n} kişi zaten haber listesinde.",
+  rules_t:"Ağın kuralları", rules_p:"Açık ve herkes için. Topluluğun güvenini bunlar sağlar.",
+  r1_t:"Her şey ücretsiz, her zaman", r1_p:"Aramak, kayıt olmak, yayınlamak ve iletişim kurmak. Kimse ağı kullanmanız için para alamaz.",
+  r2_t:"Kimse iş için para ödemez", r2_p:"Biri size iş veya gönüllü bulmak için para isterse bayrakla bildirin.",
+  r3_t:"Korunan telefonlar", r3_p:"Numaralar gizli yayınlanır ve yalnızca kimliğini bildirenlere gösterilir.",
+  r4_t:"Doğrulanabilir veriler", r4_p:"Herkese açık doğrulama bağlantısıyla FPV ve MPPS belgeleri, artı topluluk bildirimleri.",
+  r5_t:"Herkes için web", r5_p:"İndirme yok: her telefonda veya bilgisayarda çalışır, sinyal zayıf olsa bile.",
+  r6_t:"Acil durumlar: 171", r6_p:"Ağ, acil tıbbi bakımın veya kurtarma ekiplerinin yerini tutmaz.",
+  fund_sec_t:"Vakıf", fund_sec_p:"enVenezuela.app, ağın platformlarını birbirine bağlayan ve koruyan merkezdir.",
+  fund_t:"Ne inşa ediyoruz",
+  fund_p1:'<b>Topluluk temelli bir deprem müdahale sistemi:</b> hastanedeki kişiler ve sağlık merkezleri, doğrulanmış duygusal destek ve yeniden inşa için bir iş ve gönüllülük ağı.',
+  fund_p2:'<b>Sırada ne var:</b> ekipman ve uydu internetli yüz yüze kayıt merkezleri, daha fazla doğrulanmış uzman ve topluluğun ihtiyacına göre yeni alanlar.',
+  fund_p3:'<b>Kim yapıyor:</b> tüm Venezuela\'dan gönüllüler. Verileri topluluğun kendisi girer ve denetler.',
+  fund_mini:"Şeffaflık: ağ, yapay zeka (Claude) desteğiyle gönüllüler tarafından inşa edildi; bu, küçük bir ekibin hızlı ilerlemesini sağlıyor. Acil durumlar: 171'i arayın.",
+  unete_t:"Bir girişimin mi var? Katıl",
+  unete_p:"Yardım merkezleri, barınaklar, kiliseler, STK'lar, şirketler, teknoloji veya katkı sağlayacak her fikir: bize anlatın, sizinle iletişime geçelim.",
+  lbl_in_nombre:"Adınız veya kuruluşunuzun adı *", ph_in_nombre:"Örn: La Candelaria yardım merkezi",
+  lbl_in_tipo:"Girişim türü *",
+  opt_acopio:"Yardım toplama merkezi", opt_refugio:"Barınak", opt_ong:"STK / kilise", opt_empresa:"Şirket",
+  opt_vol:"Gönüllülük", opt_tec:"Teknoloji", opt_otra:"Diğer",
+  lbl_in_contacto:"WhatsApp veya e-posta *", ph_in_contacto:"Size ulaşabilmemiz için",
+  lbl_in_desc:"Birkaç satırda anlatın", ph_in_desc:"Ne yapıyorsunuz ve ağa nasıl katılmak istiyorsunuz",
+  in_send:"Vakfa gönder",
+  in_err:"Adı ve iletişim bilgisini doldurun.",
+  in_ok:"✅ Alındı. Vakıf yakında sizinle iletişime geçecek.",
+  in_neterr:"Gönderilemedi. Tekrar deneyin.",
+  foot_1:"Depremden sonraki yardım ağının vakfı ve merkezi",
+  foot_3:"Kâr amacı gütmeyen topluluk girişimi. Gönüllüler tarafından, Venezuela için yapıldı."
+},
+zh: {
+  title:"enVenezuela.app · 地震后的基金会与互助网络",
+  meta_desc:"非营利社区基金会：查找住院的亲人，获得经过认证的心理支持，并找到工作或志愿服务。全部免费，全部在线，面向所有人。",
+  og_title:"enVenezuela.app · 地震后的互助网络",
+  og_desc:"一个基金会，三个平台：医院、心理医生和工作。实时数据、线下登记中心和社区。",
+  lang_aria:"切换语言",
+  nav_plat:"平台", nav_vivo:"实时", nav_reg:"登记", nav_fund:"基金会", nav_unete:"加入我们",
+  badge_f:"社区基金会 · 非营利 · 实时网络",
+  h1:'一个互助网络，<span class="grad">三个姐妹平台</span>，免费面向所有人。',
+  hero_sub:"地震后我们以社区形式组织起来：在这里您可以找到住院的亲人，获得认证专业人员的心理支持，并找到工作或志愿服务。无需付费，无需下载，没有中间人：纯网页，手机或电脑都能用。",
+  cta_ver:"查看平台", cta_reg:"失去了一切？在这里登记",
+  livehead:"网络实时数据",
+  st_pac:"已登记人数", st_enc:"已找到", st_alta:"已出院",
+  st_prof:"心理健康专业人员", st_emp:"求职中", st_sol:"职位与请求",
+  lastreg_pre:"网络中最新登记的人：",
+  rel_moment:"刚刚", rel_min:"{n} 分钟前", rel_h:"{n} 小时前", rel_d:"{n} 天前",
+  plat_t:"网络的三个平台",
+  plat_p:"每个平台都有自己的网址、颜色和使命。它们共享同一个社区数据库。",
+  hosp_t:"委内瑞拉的医院",
+  hosp_p:"在医院和医疗中心查找您的亲人，查看每个中心的状态，并作为志愿者登记信息来提供帮助。",
+  hosp_go:"查找我的亲人",
+  psi_t:"委内瑞拉的心理医生",
+  psi_p:"证书可查的心理学家和精神科医生，许多是免费的。2分钟焦虑测试和求助留言墙。",
+  psi_go:"我需要找人谈谈",
+  emp_t:"委内瑞拉的工作",
+  emp_p:"免费的职业档案，就像一个社区工作网络：经验、技能和可用时间。企业和避难所直接与您联系。",
+  emp_go:"找工作或提供帮助",
+  centro_t:"失去了一切，连电脑也没有了？您仍然可以登记。",
+  centro_p1:'如果地震夺走了您的家、工作和设备，您的技能依然还在。我们正在加拉加斯 Las Mercedes 筹备一个<b>线下登记中心</b>：',
+  centro_li1:"10 台电脑，志愿者帮助您创建职业档案",
+  centro_li2:"卫星互联网，即使当地没有网络也能完成登记",
+  centro_li3:"我们一步步陪伴您，让企业、物资中心和避难所都能看到您",
+  centro_p2:"留下您的姓名和 WhatsApp，开放后我们会第一时间通知您具体地址和时间。",
+  cbox_t:"📋 中心开放时通知我",
+  ph_nombre:"您的姓名 *", ph_tel:"您的 WhatsApp * 例：0414 1234567",
+  ph_hab:"您的技能（可选）例：烹饪、砌墙", ph_zona:"您所在的区域（可选）例：Petare",
+  av_send:"请通知我", sending:"发送中…",
+  av_err:"请填写您的姓名和有效的 WhatsApp 号码。",
+  av_ok:"✅ 好了，您已在名单上。开放时我们会通过 WhatsApp 联系您。",
+  rate:"您已多次提交。请稍后再试。",
+  net_err:"发送失败。请检查网络后重试。",
+  aviso_s:"已有 1 人在通知名单上。", aviso_p:"已有 {n} 人在通知名单上。",
+  rules_t:"网络的规则", rules_p:"清晰且人人适用。正是这些规则让社区产生信任。",
+  r1_t:"一切永远免费", r1_p:"搜索、登记、发布和联系。任何人都不能因使用本网络向您收费。",
+  r2_t:"没有人为工作付钱", r2_p:"如果有人以介绍工作或志愿者为由要钱，请用小旗举报。",
+  r3_t:"电话号码受保护", r3_p:"号码以隐藏方式发布，只向表明身份的人展示。",
+  r4_t:"信息可核实", r4_p:"FPV 和 MPPS 执业证书附带公开核实链接，还有社区举报机制。",
+  r5_t:"面向所有人的网页", r5_p:"无需下载：任何手机或电脑都能用，信号差也可以。",
+  r6_t:"紧急情况：171", r6_p:"本网络不能替代紧急医疗服务或救援队。",
+  fund_sec_t:"基金会", fund_sec_p:"enVenezuela.app 是连接并守护网络各平台的主站。",
+  fund_t:"我们在建设什么",
+  fund_p1:'<b>一个社区地震响应系统：</b>住院人员与医疗中心、经认证的心理支持，以及用于重建的工作和志愿服务网络。',
+  fund_p2:'<b>接下来：</b>配备设备和卫星互联网的线下登记中心、更多认证专业人员，以及根据社区需要的新板块。',
+  fund_p3:'<b>谁在做：</b>来自委内瑞拉各地的志愿者。数据由社区自己录入和审核。',
+  fund_mini:"透明度：本网络由志愿者在人工智能（Claude）协助下建成，让小团队也能快速推进。紧急情况请拨打 171。",
+  unete_t:"有想法？加入我们",
+  unete_p:"物资中心、避难所、教会、NGO、企业、技术或任何有帮助的想法：告诉我们，我们会联系您。",
+  lbl_in_nombre:"您或您组织的名称 *", ph_in_nombre:"例：La Candelaria 物资中心",
+  lbl_in_tipo:"倡议类型 *",
+  opt_acopio:"物资收集中心", opt_refugio:"避难所", opt_ong:"NGO / 教会", opt_empresa:"企业",
+  opt_vol:"志愿服务", opt_tec:"技术", opt_otra:"其他",
+  lbl_in_contacto:"WhatsApp 或邮箱 *", ph_in_contacto:"方便我们联系您",
+  lbl_in_desc:"用几句话告诉我们", ph_in_desc:"你们做什么，想如何加入网络",
+  in_send:"发送给基金会",
+  in_err:"请填写名称和联系方式。",
+  in_ok:"✅ 已收到。基金会会尽快联系您。",
+  in_neterr:"发送失败。请重试。",
+  foot_1:"地震后互助网络的基金会与主站",
+  foot_3:"非营利社区行动。由志愿者制作，献给委内瑞拉。"
+},
+ar: {
+  title:"enVenezuela.app · المؤسسة وشبكة المساعدة بعد الزلزال",
+  meta_desc:"مؤسسة مجتمعية غير ربحية: اعثر على قريبك في المستشفى، واحصل على دعم نفسي موثوق، وجد عملا أو تطوعا. كل شيء مجاني، كله عبر الويب، للجميع.",
+  og_title:"enVenezuela.app · شبكة المساعدة بعد الزلزال",
+  og_desc:"مؤسسة واحدة، ثلاث منصات: المستشفيات والأخصائيون النفسيون والعمل. بيانات مباشرة ومركز تسجيل حضوري ومجتمع.",
+  lang_aria:"تغيير اللغة",
+  nav_plat:"المنصات", nav_vivo:"مباشر", nav_reg:"سجل", nav_fund:"المؤسسة", nav_unete:"انضم",
+  badge_f:"مؤسسة مجتمعية · غير ربحية · شبكة مباشرة",
+  h1:'شبكة مساعدة واحدة، <span class="grad">ثلاث منصات شقيقة</span>، مجانية وللجميع.',
+  hero_sub:"بعد الزلزال نظمنا أنفسنا كمجتمع: هنا تجد قريبك في المستشفى، وتحصل على دعم نفسي من مختصين موثوقين، وتجد عملا أو تطوعا. بلا رسوم وبلا تنزيلات وبلا وسطاء: ويب فقط، على هاتفك أو حاسوبك.",
+  cta_ver:"شاهد المنصات", cta_reg:"فقدت كل شيء؟ سجل هنا",
+  livehead:"الشبكة مباشرة",
+  st_pac:"أشخاص مسجلون", st_enc:"تم العثور عليهم", st_alta:"خرجوا من المستشفى",
+  st_prof:"مختصو الصحة النفسية", st_emp:"يبحثون عن عمل", st_sol:"وظائف وطلبات",
+  lastreg_pre:"آخر شخص سجل في الشبكة:",
+  rel_moment:"قبل لحظات", rel_min:"قبل {n} دقيقة", rel_h:"قبل {n} ساعة", rel_d:"قبل {n} يوم",
+  plat_t:"منصات الشبكة الثلاث",
+  plat_p:"كل منصة لها عنوانها ولونها ومهمتها. وكلها تتشارك قاعدة البيانات المجتمعية نفسها.",
+  hosp_t:"المستشفيات في فنزويلا",
+  hosp_p:"ابحث عن قريبك في المستشفيات والمراكز الصحية، واطلع على حالة كل مركز، وساعد بتسجيل البيانات كمتطوع.",
+  hosp_go:"البحث عن قريبي",
+  psi_t:"الأخصائيون النفسيون في فنزويلا",
+  psi_p:"أخصائيون وأطباء نفسيون بشهادات يمكن التحقق منها، وكثير منهم مجانا. اختبار قلق مدته دقيقتان وجدارية لطلبات الدعم.",
+  psi_go:"أحتاج إلى التحدث مع أحد",
+  emp_t:"العمل في فنزويلا",
+  emp_p:"ملفك المهني مجانا، مثل شبكة عمل مجتمعية: الخبرة والمهارات والتوفر. الشركات والملاجئ تتواصل معك مباشرة.",
+  emp_go:"ابحث عن عمل أو ساعد",
+  centro_t:"فقدت كل شيء، حتى حاسوبك؟ ما زال بإمكانك التسجيل.",
+  centro_p1:'إذا أخذ الزلزال بيتك وعملك وأجهزتك، فمهاراتك ما زالت سليمة. نجهز <b>مركز تسجيل حضوريا</b> في لاس مرسيدس، كاراكاس:',
+  centro_li1:"10 حواسيب جاهزة لإنشاء ملفك المهني بمساعدة متطوعين",
+  centro_li2:"إنترنت عبر الأقمار الصناعية ليعمل التسجيل حتى لو انقطع الاتصال في المنطقة",
+  centro_li3:"نرافقك خطوة بخطوة وتصبح مرئيا للشركات ومراكز الإغاثة والملاجئ",
+  centro_p2:"اترك اسمك ورقم واتساب وسنخبرك فور الافتتاح بالعنوان الدقيق والمواعيد.",
+  cbox_t:"📋 أخبروني عند افتتاح المركز",
+  ph_nombre:"اسمك الكامل *", ph_tel:"واتساب * مثال: 0414 1234567",
+  ph_hab:"مهاراتك (اختياري) مثال: الطبخ، البناء", ph_zona:"منطقتك (اختياري) مثال: Petare",
+  av_send:"أريد أن تخبروني", sending:"جار الإرسال…",
+  av_err:"اكتب اسمك ورقم واتساب صحيحا.",
+  av_ok:"✅ تم، أنت في القائمة. سنراسلك على واتساب عند الافتتاح.",
+  rate:"لقد أرسلت عدة مرات. حاول لاحقا.",
+  net_err:"تعذر الإرسال. تحقق من اتصالك وحاول مرة أخرى.",
+  aviso_s:"شخص واحد في قائمة الإشعار بالفعل.", aviso_p:"{n} أشخاص في قائمة الإشعار بالفعل.",
+  rules_t:"قواعد الشبكة", rules_p:"واضحة وللجميع. هي ما يجعل المجتمع يثق.",
+  r1_t:"كل شيء مجاني، دائما", r1_p:"البحث والتسجيل والنشر والتواصل. لا يحق لأحد أن يتقاضى منك مالا مقابل استخدام الشبكة.",
+  r2_t:"لا أحد يدفع مقابل العمل", r2_p:"إذا طلب أحدهم مالا مقابل إيجاد عمل أو متطوعين، أبلغ عنه بعلامة العلم.",
+  r3_t:"أرقام هواتف محمية", r3_p:"تنشر الأرقام مخفية ولا تكشف إلا لمن يعرف بنفسه.",
+  r4_t:"بيانات يمكن التحقق منها", r4_p:"شهادات FPV وMPPS مع رابط تحقق عام، وبلاغات مجتمعية.",
+  r5_t:"ويب للجميع", r5_p:"لا شيء للتنزيل: يعمل على أي هاتف أو حاسوب، حتى مع إشارة ضعيفة.",
+  r6_t:"للطوارئ: 171", r6_p:"الشبكة لا تغني عن الرعاية الطبية الطارئة ولا عن فرق الإنقاذ.",
+  fund_sec_t:"المؤسسة", fund_sec_p:"enVenezuela.app هي المركز الذي يربط منصات الشبكة ويرعاها.",
+  fund_t:"ما الذي نبنيه",
+  fund_p1:'<b>نظام مجتمعي للاستجابة للزلزال:</b> الأشخاص في المستشفيات والمراكز الصحية، ودعم نفسي موثوق، وشبكة عمل وتطوع لإعادة الإعمار.',
+  fund_p2:'<b>ما هو قادم:</b> مراكز تسجيل حضورية بأجهزة وإنترنت فضائي، ومزيد من المختصين الموثوقين، ومجالات جديدة حسب حاجة المجتمع.',
+  fund_p3:'<b>من يقوم بذلك:</b> متطوعون من كل فنزويلا. المجتمع نفسه يسجل البيانات ويشرف عليها.',
+  fund_mini:"الشفافية: بنيت الشبكة على يد متطوعين بمساعدة الذكاء الاصطناعي (Claude)، ما يتيح لفريق صغير التقدم بسرعة. للطوارئ: اتصل بالرقم 171.",
+  unete_t:"لديك مبادرة؟ انضم إلينا",
+  unete_p:"مراكز إغاثة، ملاجئ، كنائس، منظمات، شركات، تقنية أو أي فكرة مفيدة: أخبرنا وسنتواصل معك.",
+  lbl_in_nombre:"اسمك أو اسم منظمتك *", ph_in_nombre:"مثال: مركز إغاثة La Candelaria",
+  lbl_in_tipo:"نوع المبادرة *",
+  opt_acopio:"مركز جمع المساعدات", opt_refugio:"ملجأ", opt_ong:"منظمة / كنيسة", opt_empresa:"شركة",
+  opt_vol:"تطوع", opt_tec:"تقنية", opt_otra:"أخرى",
+  lbl_in_contacto:"واتساب أو بريد إلكتروني *", ph_in_contacto:"لنتواصل معك",
+  lbl_in_desc:"أخبرنا في سطور قليلة", ph_in_desc:"ماذا تفعلون وكيف تريدون الانضمام إلى الشبكة",
+  in_send:"أرسل إلى المؤسسة",
+  in_err:"أكمل الاسم ومعلومات التواصل.",
+  in_ok:"✅ وصلنا طلبك. ستتواصل معك المؤسسة قريبا.",
+  in_neterr:"تعذر الإرسال. حاول مرة أخرى.",
+  foot_1:"مؤسسة شبكة المساعدة بعد الزلزال ومركزها",
+  foot_3:"مبادرة مجتمعية غير ربحية. صنعها متطوعون من أجل فنزويلا."
+}
+};
+
+const LANGS=[["es","🇻🇪","Español"],["en","🇺🇸","English"],["pt","🇧🇷","Português"],["fr","🇫🇷","Français"],["it","🇮🇹","Italiano"],["de","🇩🇪","Deutsch"],["tr","🇹🇷","Türkçe"],["zh","🇨🇳","中文"],["ar","🇶🇦","العربية"]];
+const OG_LOCALE={es:"es_VE",en:"en_US",pt:"pt_BR",fr:"fr_FR",it:"it_IT",de:"de_DE",tr:"tr_TR",zh:"zh_CN",ar:"ar_AR"};
+const NUM_LOCALE={es:"es-VE",en:"en-US",pt:"pt-BR",fr:"fr-FR",it:"it-IT",de:"de-DE",tr:"tr-TR",zh:"zh-CN",ar:"ar"};
+window.RED_LANG="es";
+window.t=function(k){const d=I18N[window.RED_LANG]||I18N.es;return d[k]!=null?d[k]:(I18N.es[k]!=null?I18N.es[k]:k);};
+function renderLangMenu(){
+  const menu=document.getElementById("lang-menu");if(!menu)return;
+  menu.innerHTML="";
+  LANGS.forEach(function(l){
+    const b=document.createElement("button");
+    b.type="button";b.setAttribute("role","option");
+    b.className=l[0]===window.RED_LANG?"on":"";
+    b.textContent=l[1]+" "+l[2];
+    b.addEventListener("click",function(){setLang(l[0]);document.getElementById("lang-menu").hidden=true;document.getElementById("lang-btn").setAttribute("aria-expanded","false");});
+    menu.appendChild(b);
+  });
+}
+function setLang(l){
+  if(!I18N[l])l="es";
+  window.RED_LANG=l;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){el.textContent=t(el.getAttribute("data-i18n"));});
+  document.querySelectorAll("[data-i18n-html]").forEach(function(el){el.innerHTML=t(el.getAttribute("data-i18n-html"));});
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){el.setAttribute("placeholder",t(el.getAttribute("data-i18n-ph")));});
+  document.querySelectorAll("[data-i18n-aria]").forEach(function(el){el.setAttribute("aria-label",t(el.getAttribute("data-i18n-aria")));});
+  document.documentElement.lang=l;
+  document.documentElement.dir=(l==="ar")?"rtl":"ltr";
+  document.title=t("title");
+  var md=document.querySelector('meta[name="description"]');if(md)md.setAttribute("content",t("meta_desc"));
+  var ot=document.querySelector('meta[property="og:title"]');if(ot)ot.setAttribute("content",t("og_title"));
+  var od=document.querySelector('meta[property="og:description"]');if(od)od.setAttribute("content",t("og_desc"));
+  var ol=document.querySelector('meta[property="og:locale"]');if(ol)ol.setAttribute("content",OG_LOCALE[l]);
+  try{localStorage.setItem("red_lang",l);}catch(e){}
+  var cur=document.getElementById("lang-cur");if(cur)cur.textContent=l.toUpperCase();
+  renderLangMenu();
+  if(window.__redRefresh)window.__redRefresh();
+  if(window.__redAviso)window.__redAviso();
+}
+(function initLang(){
+  var btn=document.getElementById("lang-btn"),menu=document.getElementById("lang-menu");
+  btn.addEventListener("click",function(e){e.stopPropagation();menu.hidden=!menu.hidden;btn.setAttribute("aria-expanded",String(!menu.hidden));});
+  document.addEventListener("click",function(e){if(!menu.hidden&&!menu.contains(e.target)){menu.hidden=true;btn.setAttribute("aria-expanded","false");}});
+  var saved=null;try{saved=localStorage.getItem("red_lang");}catch(e){}
+  var nav2=(navigator.language||"es").slice(0,2).toLowerCase();
+  var initial=(saved&&I18N[saved])?saved:(I18N[nav2]?nav2:"es");
+  setLang(initial);
+})();
+</script>
 
 <script>
 (function(){
@@ -263,39 +963,46 @@ const BASE="https://ozuxfepfkvnxkywdsqxy.supabase.co/rest/v1/rpc/";
 const KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96dXhmZXBma3ZueGt5d2RzcXh5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MjI5NTEsImV4cCI6MjA5Nzk5ODk1MX0.YhW0GalGkQZdO2NJTg_01C5XhdMmJ6RbNSNXXC0xG4o";
 const $=id=>document.getElementById(id);
 const call=(n,body)=>fetch(BASE+n,{method:"POST",headers:{apikey:KEY,Authorization:"Bearer "+KEY,"Content-Type":"application/json"},body:JSON.stringify(body||{})}).then(r=>r.ok?r.json():null).catch(()=>null);
-const fmt=n=>Number(n||0).toLocaleString("es-VE");
+const fmt=n=>Number(n||0).toLocaleString(NUM_LOCALE[window.RED_LANG]||"es-VE");
 let DEV="";try{DEV=localStorage.getItem("red_dev")||("d"+Math.random().toString(36).slice(2)+Date.now().toString(36));localStorage.setItem("red_dev",DEV);}catch(e){DEV="d"+Date.now();}
 function anim(el,v){if(!el)return;const from=parseInt((el.textContent||"0").replace(/\D/g,""))||0;if(from===v){el.textContent=fmt(v);return;}
-  const t0=performance.now();(function step(t){const p=Math.min(1,(t-t0)/700);el.textContent=fmt(Math.round(from+(v-from)*p));if(p<1)requestAnimationFrame(step);})(t0);}
-function rel(iso){try{const s=(Date.now()-new Date(iso).getTime())/1e3;if(s<90)return"hace un momento";if(s<3600)return"hace "+Math.round(s/60)+" min";if(s<86400)return"hace "+Math.round(s/3600)+" h";return"hace "+Math.round(s/86400)+" días";}catch(e){return"";}}
+  const t0=performance.now();(function step(tm){const p=Math.min(1,(tm-t0)/700);el.textContent=fmt(Math.round(from+(v-from)*p));if(p<1)requestAnimationFrame(step);})(t0);}
+function rel(iso){try{const s=(Date.now()-new Date(iso).getTime())/1e3;if(s<90)return t("rel_moment");if(s<3600)return t("rel_min").replace("{n}",Math.round(s/60));if(s<86400)return t("rel_h").replace("{n}",Math.round(s/3600));return t("rel_d").replace("{n}",Math.round(s/86400));}catch(e){return"";}}
+let LASTREG_ISO=null;
 async function stats(){
   const [h,p,e]=await Promise.all([call("estadisticas"),call("psi_estadisticas"),call("emp_estadisticas")]);
   if(h){anim($("st-pac"),h.pacientes||0);anim($("st-enc"),h.encontradas||0);anim($("st-alta"),h.altas||0);
-    if(h.ultima_registrada)$("lastreg").innerHTML='Última persona registrada en la red: <b>'+rel(h.ultima_registrada)+'</b>';}
+    if(h.ultima_registrada){LASTREG_ISO=h.ultima_registrada;}}
   if(p)anim($("st-prof"),p.profesionales||0);
   if(e){anim($("st-emp"),e.perfiles||0);anim($("st-sol"),e.solicitudes_abiertas||0);}
+  paintLastreg();
 }
+function paintLastreg(){if(LASTREG_ISO)$("lastreg").innerHTML=t("lastreg_pre")+" <b>"+rel(LASTREG_ISO)+"</b>";}
+let AVISO_TOTAL=null;
+function paintAviso(){if(AVISO_TOTAL==null||AVISO_TOTAL<=0)return;$("aviso-cnt").textContent=(AVISO_TOTAL===1)?t("aviso_s"):t("aviso_p").replace("{n}",fmt(AVISO_TOTAL));}
+window.__redRefresh=function(){paintLastreg();stats();};
+window.__redAviso=paintAviso;
 stats();setInterval(stats,60000);
-call("red_stats").then(r=>{if(r&&r.avisos>0)$("aviso-cnt").textContent=fmt(r.avisos)+(r.avisos===1?" persona ya está":" personas ya están")+" en la lista de aviso.";});
+call("red_stats").then(r=>{if(r&&r.avisos>0){AVISO_TOTAL=r.avisos;paintAviso();}});
 $("av-send").addEventListener("click",async()=>{
-  const n=$("av-nombre").value.trim(),t=$("av-tel").value.trim(),m=$("av-msg");
-  if(!n||t.replace(/\D/g,"").length<7){m.style.color="#ffd7d7";m.textContent="Escribe tu nombre y un WhatsApp válido.";return;}
-  const b=$("av-send");b.disabled=true;b.textContent="Enviando…";
-  const r=await call("red_aviso_registro",{p_nombre:n,p_telefono:t,p_habilidades:$("av-hab").value.trim()||null,p_zona:$("av-zona").value.trim()||null,p_device:DEV});
-  b.disabled=false;b.textContent="Quiero que me avisen";
-  if(r&&r.ok){m.style.color="#d9ffe6";m.textContent="✅ Listo, quedaste en la lista. Te escribimos por WhatsApp cuando abramos.";if(r.total)$("aviso-cnt").textContent=fmt(r.total)+" personas ya están en la lista de aviso.";$("av-nombre").value="";$("av-tel").value="";$("av-hab").value="";$("av-zona").value="";}
-  else if(r&&r.error==="rate"){m.style.color="#ffd7d7";m.textContent="Ya enviaste varias veces. Intenta más tarde.";}
-  else{m.style.color="#ffd7d7";m.textContent="No se pudo enviar. Revisa tu conexión e intenta de nuevo.";}
+  const n=$("av-nombre").value.trim(),tel=$("av-tel").value.trim(),m=$("av-msg");
+  if(!n||tel.replace(/\D/g,"").length<7){m.style.color="#ffd7d7";m.textContent=t("av_err");return;}
+  const b=$("av-send");b.disabled=true;b.textContent=t("sending");
+  const r=await call("red_aviso_registro",{p_nombre:n,p_telefono:tel,p_habilidades:$("av-hab").value.trim()||null,p_zona:$("av-zona").value.trim()||null,p_device:DEV});
+  b.disabled=false;b.textContent=t("av_send");
+  if(r&&r.ok){m.style.color="#d9ffe6";m.textContent=t("av_ok");if(r.total){AVISO_TOTAL=r.total;paintAviso();}$("av-nombre").value="";$("av-tel").value="";$("av-hab").value="";$("av-zona").value="";}
+  else if(r&&r.error==="rate"){m.style.color="#ffd7d7";m.textContent=t("rate");}
+  else{m.style.color="#ffd7d7";m.textContent=t("net_err");}
 });
 $("in-send").addEventListener("click",async()=>{
   const n=$("in-nombre").value.trim(),c=$("in-contacto").value.trim(),m=$("in-msg");
-  if(!n||!c){m.style.color="#b42318";m.textContent="Completa el nombre y el contacto.";return;}
-  const b=$("in-send");b.disabled=true;b.textContent="Enviando…";
+  if(!n||!c){m.style.color="#b42318";m.textContent=t("in_err");return;}
+  const b=$("in-send");b.disabled=true;b.textContent=t("sending");
   const r=await call("red_registrar_iniciativa",{p_nombre:n,p_tipo:$("in-tipo").value,p_contacto:c,p_descripcion:$("in-desc").value.trim()||null,p_device:DEV});
-  b.disabled=false;b.textContent="Enviar a la fundación";
-  if(r&&r.ok){m.style.color="var(--ok)";m.textContent="✅ Recibido. La fundación te contactará pronto.";$("in-nombre").value="";$("in-contacto").value="";$("in-desc").value="";}
-  else if(r&&r.error==="rate"){m.style.color="#b42318";m.textContent="Ya enviaste varias veces. Intenta más tarde.";}
-  else{m.style.color="#b42318";m.textContent="No se pudo enviar. Intenta de nuevo.";}
+  b.disabled=false;b.textContent=t("in_send");
+  if(r&&r.ok){m.style.color="var(--ok)";m.textContent=t("in_ok");$("in-nombre").value="";$("in-contacto").value="";$("in-desc").value="";}
+  else if(r&&r.error==="rate"){m.style.color="#b42318";m.textContent=t("rate");}
+  else{m.style.color="#b42318";m.textContent=t("in_neterr");}
 });
 })();
 </script>
